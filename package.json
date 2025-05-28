@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://leanczo.github.io/portfolio-markdown/",
+  "homepage": "https://leanczo.github.io/portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
