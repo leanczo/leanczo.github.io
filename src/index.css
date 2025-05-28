@@ -1,0 +1,59 @@
+@import 'github-markdown-css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .markdown-body {
+    @apply text-md-text-light dark:text-md-text-dark bg-md-bg-light dark:bg-md-bg-dark;
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+  }
+
+  @media (max-width: 767px) {
+    .markdown-body {
+      padding: 15px;
+    }
+  }
+
+  .tab {
+    @apply px-4 py-2 rounded-t-lg font-medium border-b-2 cursor-pointer transition-colors;
+  }
+
+  .tab.active {
+    @apply border-md-link-light dark:border-md-link-dark text-md-link-light dark:text-md-link-dark;
+  }
+
+  .tab.inactive {
+    @apply border-transparent hover:border-md-border-light dark:hover:border-md-border-dark;
+  }
+}
