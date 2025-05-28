@@ -53,12 +53,12 @@ Before you begin, ensure you have the following installed:
 
 5. Open your browser and visit `http://localhost:5173`
 
-## 🚀 Despliegue en GitHub Pages
+## 🚀 Deployment on GitHub Pages
 
-Asegúrate de haber configurado la propiedad "homepage" y los scripts en el archivo package.json de la siguiente forma:
+Make sure you have configured the "homepage" property and scripts in your package.json as follows:
 
 ```json
-"homepage": "https://<tu-usuario>.github.io/<nombre-del-repo>",
+"homepage": "https://<your-username>.github.io",
 "scripts": {
   "predeploy": "vite build",
   "deploy": "gh-pages -d dist",
@@ -66,17 +66,17 @@ Asegúrate de haber configurado la propiedad "homepage" y los scripts en el arch
 }
 ```
 
-Una vez hecho esto y que tu proyecto esté subido a un repositorio de GitHub, sigue estos pasos:
+Once this is done and your project is pushed to a GitHub repository, follow these steps:
 
-1. Ejecuta en la terminal:
+1. Run the following command in your terminal:
    ```bash
    npm run deploy
    ```
-   Esto generará un build de tu proyecto y creará (o actualizará) la rama `gh-pages` con el contenido de la carpeta `build`.
+   This command will generate a build of your project and create (or update) the `gh-pages` branch with the content from the `build` folder.
 
-2. Entra a tu repositorio en GitHub, dirígete a **Settings > Pages**, selecciona la rama `gh-pages` y guarda los cambios.
+2. Open your repository on GitHub, navigate to **Settings > Pages**, select the `gh-pages` branch, and save the changes.
 
-GitHub Pages tardará unos minutos en publicar tu sitio. Cada vez que realices cambios, ejecuta nuevamente `npm run deploy` para actualizar la versión en línea.
+GitHub Pages might take a few minutes to publish your site. Each time you make changes, run `npm run deploy` again to update the live site.
 
 ## 📂 Project Structure
 
