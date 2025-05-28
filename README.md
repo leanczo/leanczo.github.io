@@ -53,19 +53,30 @@ Before you begin, ensure you have the following installed:
 
 5. Open your browser and visit `http://localhost:5173`
 
-## 🏗️ Building for Production
+## 🚀 Despliegue en GitHub Pages
 
-To create a production build:
+Asegúrate de haber configurado la propiedad "homepage" y los scripts en el archivo package.json de la siguiente forma:
 
-```bash
-npm run build
+```json
+"homepage": "https://<tu-usuario>.github.io/<nombre-del-repo>",
+"scripts": {
+  "predeploy": "vite build",
+  "deploy": "gh-pages -d dist",
+  // ...existing scripts...
+}
 ```
 
-To preview the production build locally:
+Una vez hecho esto y que tu proyecto esté subido a un repositorio de GitHub, sigue estos pasos:
 
-```bash
-npm run preview
-```
+1. Ejecuta en la terminal:
+   ```bash
+   npm run deploy
+   ```
+   Esto generará un build de tu proyecto y creará (o actualizará) la rama `gh-pages` con el contenido de la carpeta `build`.
+
+2. Entra a tu repositorio en GitHub, dirígete a **Settings > Pages**, selecciona la rama `gh-pages` y guarda los cambios.
+
+GitHub Pages tardará unos minutos en publicar tu sitio. Cada vez que realices cambios, ejecuta nuevamente `npm run deploy` para actualizar la versión en línea.
 
 ## 📂 Project Structure
 
