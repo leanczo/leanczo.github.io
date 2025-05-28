@@ -12,6 +12,7 @@ A modern, responsive developer portfolio built with React, TypeScript, and Tailw
 - 🎯 Animated tab transitions
 - 💻 Code snippet highlighting
 - 🔗 Social media integration
+- 💬 Comments integration with [Giscus](https://giscus.app/)
 - ☕ Buy Me a Coffee integration
 
 ## 🛠️ Built With
