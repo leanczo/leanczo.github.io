@@ -23,7 +23,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language, isDarkMode }) => 
     }
   };
 
-  // No renderizar si no hay código válido
   if (!isValidCode) {
     return null; // o <div>Loading code...</div>
   }
