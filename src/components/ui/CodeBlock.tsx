@@ -12,37 +12,21 @@ interface CodeBlockProps {
 const CodeBlock: React.FC<CodeBlockProps> = ({ code, language, isDarkMode }) => {
   const [copied, setCopied] = React.useState(false);
 
+  // Validar que code sea un string válido
+  const isValidCode = typeof code === 'string' && code.length > 0;
+  
   const handleCopy = () => {
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  type MaybeWithChildren = { props?: { children?: unknown } };
-
-  const normalizeCode = (code: unknown): string => {
-    if (typeof code === 'string') return code;
-    if (Array.isArray(code)) return code.map(normalizeCode).join('');
-    if (code === undefined || code === null) return '';
-    if (typeof code === 'object') {
-      const maybe = code as MaybeWithChildren;
-      if (
-        maybe.props &&
-        typeof maybe.props === 'object' &&
-        'children' in maybe.props
-      ) {
-        return normalizeCode(maybe.props.children);
-      }
-      try {
-        return JSON.stringify(code);
-      } catch {
-        return String(code);
-      }
+    if (isValidCode) {
+      navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     }
-    return String(code);
   };
 
-  const normalizedCode = normalizeCode(code);
+  // No renderizar si no hay código válido
+  if (!isValidCode) {
+    return null; // o <div>Loading code...</div>
+  }
 
   return (
     <div className="relative">
@@ -63,7 +47,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language, isDarkMode }) => 
           fontSize: '0.9rem',
         }}
       >
-        {normalizedCode}
+        {code}
       </SyntaxHighlighter>
     </div>
   );
