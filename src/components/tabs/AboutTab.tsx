@@ -1,7 +1,11 @@
 import React from 'react';
 import CodeBlock from '../ui/CodeBlock';
 
-const AboutTab: React.FC = () => {
+interface AboutTabProps {
+  isDarkMode: boolean;
+}
+
+const AboutTab: React.FC<AboutTabProps> = ({isDarkMode}) => {
   const bioCode = `/**
  * About Leandro Cardozo
  * Full Stack Developer with a passion for creating
@@ -28,7 +32,7 @@ const leandro = {
       <h2 className="text-2xl font-semibold mb-4">About Me</h2>
       
       <div className="mb-6">
-        <CodeBlock code={bioCode} language="javascript" />
+        <CodeBlock code={bioCode} language="javascript" isDarkMode={isDarkMode}/>
       </div>
 
       <p className="mb-4">

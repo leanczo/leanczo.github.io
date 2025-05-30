@@ -1,14 +1,15 @@
 import React from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Copy } from 'lucide-react';
 
 interface CodeBlockProps {
   code: string;
   language: string;
+  isDarkMode: boolean;
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
+const CodeBlock: React.FC<CodeBlockProps> = ({ code, language, isDarkMode }) => {
   const [copied, setCopied] = React.useState(false);
 
   const handleCopy = () => {
@@ -16,6 +17,8 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const normalizedCode = typeof code === 'string' ? code : (code ? String(code) : '');
 
   return (
     <div className="relative">
@@ -29,14 +32,14 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
 
       <SyntaxHighlighter
         language={language}
-        style={oneDark}
+        style={isDarkMode ? oneDark : oneLight}
         customStyle={{
           margin: 0,
           borderRadius: '0.375rem',
           fontSize: '0.9rem',
         }}
       >
-        {code}
+        {normalizedCode}
       </SyntaxHighlighter>
     </div>
   );

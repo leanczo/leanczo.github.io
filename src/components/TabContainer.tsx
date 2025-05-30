@@ -12,13 +12,17 @@ const tabs = [
   { id: 'certifications', label: 'Certifications' },
 ];
 
-const TabContainer: React.FC = () => {
+interface TabContainerProps {
+  isDarkMode: boolean;
+}
+
+const TabContainer: React.FC<TabContainerProps> = ({isDarkMode}) => {
   const [activeTab, setActiveTab] = useState('about');
 
   const renderTabContent = () => {
     switch (activeTab) {
       case 'about':
-        return <AboutTab />;
+        return <AboutTab isDarkMode={isDarkMode}/>;
       case 'experience':
         return <ExperienceTab />;
       case 'projects':
@@ -26,7 +30,7 @@ const TabContainer: React.FC = () => {
       case 'certifications':
         return <CertificationsTab />;
       default:
-        return <AboutTab />;
+        return <AboutTab isDarkMode={isDarkMode}/>;
     }
   };
 

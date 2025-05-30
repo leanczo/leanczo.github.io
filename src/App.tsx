@@ -6,47 +6,68 @@ import Footer from './components/Footer';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isThemeReady, setIsThemeReady] = useState(false);
 
   useEffect(() => {
     // Check user preference
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setIsDarkMode(prefersDark);
+    setIsThemeReady(true);
   }, []);
 
   useEffect(() => {
+    if (!isThemeReady) return;
     // Apply the theme to the document
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [isDarkMode]);
+  }, [isDarkMode, isThemeReady]);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://giscus.app/client.js';
-    script.setAttribute('data-repo', 'leanczo/leanczo.github.io');
-    script.setAttribute('data-repo-id', 'R_kgDOOxtPNw');
-    script.setAttribute('data-category', 'Announcements');
-    script.setAttribute('data-category-id', 'DIC_kwDOOxtPN84CqqyH');
-    script.setAttribute('data-mapping', 'pathname');
-    script.setAttribute('data-strict', '0');
-    script.setAttribute('data-reactions-enabled', '1');
-    script.setAttribute('data-emit-metadata', '0');
-    script.setAttribute('data-input-position', 'bottom');
-    script.setAttribute('data-theme', 'dark');
-    script.setAttribute('data-lang', 'en');
-    script.crossOrigin = 'anonymous';
-    script.async = true;
+    if (!isThemeReady) return;
     const commentsDiv = document.querySelector('.giscus');
     if (commentsDiv && !commentsDiv.hasChildNodes()) {
+      const script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.setAttribute('data-repo', 'leanczo/leanczo.github.io');
+      script.setAttribute('data-repo-id', 'R_kgDOOxtPNw');
+      script.setAttribute('data-category', 'Announcements');
+      script.setAttribute('data-category-id', 'DIC_kwDOOxtPN84CqqyH');
+      script.setAttribute('data-mapping', 'pathname');
+      script.setAttribute('data-strict', '0');
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '0');
+      script.setAttribute('data-input-position', 'bottom');
+      script.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+      script.setAttribute('data-lang', 'en');
+      script.crossOrigin = 'anonymous';
+      script.async = true;
       commentsDiv.appendChild(script);
     }
-  }, []);
+  }, [isDarkMode, isThemeReady]);
+
+  useEffect(() => {
+    if (!isThemeReady) return;
+    const iframe = document.querySelector<HTMLIFrameElement>('.giscus iframe');
+    if (iframe) {
+      iframe.contentWindow?.postMessage(
+        {
+          giscus: {
+            setConfig: {
+              theme: isDarkMode ? 'dark' : 'light',
+            },
+          },
+        },
+        'https://giscus.app'
+      );
+    }
+  }, [isDarkMode, isThemeReady]);
 
   return (
     <div className="min-h-screen bg-md-bg-light dark:bg-md-bg-dark text-md-text-light dark:text-md-text-dark transition-colors duration-300">
@@ -61,8 +82,8 @@ function App() {
       </div>
       <div className="markdown-body container mx-auto px-4 py-8 max-w-4xl">
         <Header />
-        <TabContainer />
-        <div className="giscus" />
+        <TabContainer isDarkMode={isDarkMode} />
+        {isThemeReady && <div className="giscus" />}
         <Footer />
       </div>
     </div>
