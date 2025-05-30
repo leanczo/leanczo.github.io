@@ -57,7 +57,7 @@ const leandro = {
         <div>
           <h4 className="font-medium mb-2">Frontend</h4>
           <ul className="list-disc list-inside">
-            <li>React.js & React Native</li>
+            <li>React.js</li>
             <li>Angular with NgRx</li>
             <li>TypeScript</li>
             <li>HTML5 & CSS3</li>
