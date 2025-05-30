@@ -18,7 +18,31 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language, isDarkMode }) => 
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const normalizedCode = typeof code === 'string' ? code : (code ? String(code) : '');
+  type MaybeWithChildren = { props?: { children?: unknown } };
+
+  const normalizeCode = (code: unknown): string => {
+    if (typeof code === 'string') return code;
+    if (Array.isArray(code)) return code.map(normalizeCode).join('');
+    if (code === undefined || code === null) return '';
+    if (typeof code === 'object') {
+      const maybe = code as MaybeWithChildren;
+      if (
+        maybe.props &&
+        typeof maybe.props === 'object' &&
+        'children' in maybe.props
+      ) {
+        return normalizeCode(maybe.props.children);
+      }
+      try {
+        return JSON.stringify(code);
+      } catch {
+        return String(code);
+      }
+    }
+    return String(code);
+  };
+
+  const normalizedCode = normalizeCode(code);
 
   return (
     <div className="relative">
