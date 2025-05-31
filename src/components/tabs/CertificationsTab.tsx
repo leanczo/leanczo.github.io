@@ -50,7 +50,7 @@ const CertificationsTab: React.FC = () => {
               
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                  <h3 className="text-xl font-medium">{cert.title}</h3>
+                  <h3 className="text-xl font-medium !mt-0">{cert.title}</h3>
                   <span className="text-md-text-light/70 dark:text-md-text-dark/70 text-sm">
                     {cert.date}
                   </span>

@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, lin
         
         <div className="flex-1">
           <div className="flex flex-col">
-            <h3 className="text-lg font-medium">{title}</h3>
+            <h3 className="text-lg font-medium !mt-0">{title}</h3>
             {meta && (
               <span className="text-md-text-light/70 dark:text-md-text-dark/70 text-xs">
                 {meta}
