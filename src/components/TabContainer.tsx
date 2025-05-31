@@ -4,33 +4,37 @@ import AboutTab from './tabs/AboutTab';
 import ExperienceTab from './tabs/ExperienceTab';
 import ProjectsTab from './tabs/ProjectsTab';
 import CertificationsTab from './tabs/CertificationsTab';
+import BooksTab from './tabs/BooksTab';
 
 const tabs = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'certifications', label: 'Certifications' },
+  { id: 'books', label: 'Books' },
 ];
 
 interface TabContainerProps {
   isDarkMode: boolean;
 }
 
-const TabContainer: React.FC<TabContainerProps> = ({isDarkMode}) => {
+const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode }) => {
   const [activeTab, setActiveTab] = useState('about');
 
   const renderTabContent = () => {
     switch (activeTab) {
       case 'about':
-        return <AboutTab isDarkMode={isDarkMode}/>;
+        return <AboutTab isDarkMode={isDarkMode} />;
       case 'experience':
         return <ExperienceTab />;
       case 'projects':
         return <ProjectsTab />;
       case 'certifications':
         return <CertificationsTab />;
+      case 'books':
+        return <BooksTab />;
       default:
-        return <AboutTab isDarkMode={isDarkMode}/>;
+        return <AboutTab isDarkMode={isDarkMode} />;
     }
   };
 
@@ -41,15 +45,14 @@ const TabContainer: React.FC<TabContainerProps> = ({isDarkMode}) => {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`tab ${
-              activeTab === tab.id ? 'active' : 'inactive'
-            }`}
+            className={`tab ${activeTab === tab.id ? 'active' : 'inactive'
+              }`}
           >
             {tab.label}
           </button>
         ))}
       </div>
-      
+
       <AnimatePresence mode="wait">
         <motion.div
           key={activeTab}
