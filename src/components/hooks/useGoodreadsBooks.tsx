@@ -9,6 +9,9 @@ interface Book {
   review: string;
   goodreadsUrl: string;
   dateRead?: string;
+  isbn?: string;
+  pages?: number;
+  yearPublished?: number;
 }
 
 export const useGoodreadsBooks = (userId: string) => {
@@ -21,9 +24,9 @@ export const useGoodreadsBooks = (userId: string) => {
       try {
         setLoading(true);
         
-        // Usando un proxy CORS o tu propio backend
+        // URL del RSS de libros leídos con la key
+        const rssUrl = `https://www.goodreads.com/review/list_rss/${userId}?key=B4xII8_9HQCbBn3yJOuTNb-ERYhiTlYoV7nXIsY8wPlzpYZ7&shelf=read`;
         const proxyUrl = `https://api.allorigins.win/raw?url=`;
-        const rssUrl = `https://www.goodreads.com/user/updates_rss/${userId}`;
         
         const response = await fetch(`${proxyUrl}${encodeURIComponent(rssUrl)}`);
         const xmlText = await response.text();
@@ -39,18 +42,21 @@ export const useGoodreadsBooks = (userId: string) => {
             const title = item.querySelector('title')?.textContent || 'Unknown Title';
             const link = item.querySelector('link')?.textContent || '';
             const description = item.querySelector('description')?.textContent || '';
+            const pubDate = item.querySelector('pubDate')?.textContent || '';
+            const guid = item.querySelector('guid')?.textContent || `book-${index}`;
             
-            // Extraer información del título y descripción
-            // El formato del RSS incluye rating y otros datos
             return {
-              id: `book-${index}`,
+              id: extractBookId(guid),
               title: extractBookTitle(title),
               author: extractAuthor(description),
               rating: extractRating(description),
               cover: extractCoverImage(description),
               review: extractReview(description),
               goodreadsUrl: link,
-              dateRead: item.querySelector('pubDate')?.textContent || ''
+              dateRead: pubDate,
+              isbn: extractISBN(description),
+              pages: extractPages(description),
+              yearPublished: extractYearPublished(description)
             };
           });
         
@@ -69,33 +75,129 @@ export const useGoodreadsBooks = (userId: string) => {
   return { books, loading, error };
 };
 
-// Funciones auxiliares para parsear el contenido
+// Funciones auxiliares para parsear el contenido del RSS de libros leídos
+const extractBookId = (guid: string): string => {
+  // Extraer ID del GUID o usar como ID directamente
+  const match = guid.match(/\/(\d+)$/);
+  return match ? match[1] : guid;
+};
+
 const extractBookTitle = (title: string): string => {
-  // El título del RSS viene como "Leandro rated Book Title: 4 stars"
-  const match = title.match(/rated (.+?): \d+ star/);
-  return match ? match[1] : title;
+  // En el RSS de shelf=read, el título viene más limpio
+  // Puede venir como "Book Title (Author)" o solo "Book Title"
+  const cleanTitle = title.replace(/\s*\([^)]+\)\s*$/, '').trim();
+  return cleanTitle || title;
 };
 
 const extractAuthor = (description: string): string => {
-  // Buscar "by Author Name" en la descripción
-  const match = description.match(/by ([^<]+)/);
-  return match ? match[1].trim() : 'Unknown Author';
+  // Buscar "author:" seguido del nombre del autor
+  let match = description.match(/author:\s*([^<\n]+)/i);
+  if (match) {
+    return match[1].trim();
+  }
+  
+  // Fallback: buscar "by Author Name"
+  match = description.match(/by\s+([^<\n,]+)/i);
+  if (match) {
+    return match[1].trim();
+  }
+  
+  return 'Unknown Author';
 };
 
 const extractRating = (description: string): number => {
-  // Buscar "rated it X stars"
-  const match = description.match(/rated it (\d+) star/);
-  return match ? parseInt(match[1]) : 0;
+  // Buscar "rating: X" o "rated it X stars" o similar
+  let match = description.match(/rating:\s*(\d+)/i);
+  if (match) {
+    return parseInt(match[1]);
+  }
+  
+  match = description.match(/rated\s+it\s+(\d+)\s+star/i);
+  if (match) {
+    return parseInt(match[1]);
+  }
+  
+  // Buscar estrellas en HTML
+  const starMatches = description.match(/★/g);
+  if (starMatches) {
+    return starMatches.length;
+  }
+  
+  return 0;
 };
 
 const extractCoverImage = (description: string): string => {
-  // Buscar la imagen en el HTML de la descripción
-  const match = description.match(/<img[^>]+src="([^"]+)"/);
-  return match ? match[1] : '/default-book-cover.jpg';
+  // Buscar imagen en el HTML de la descripción
+  const match = description.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i);
+  if (match) {
+    // Asegurar que sea una URL válida de imagen
+    const imageUrl = match[1];
+    if (imageUrl.startsWith('http')) {
+      return imageUrl;
+    }
+  }
+  
+  return '/default-book-cover.jpg';
 };
 
 const extractReview = (description: string): string => {
-  // Extraer el texto de reseña (después de ciertos tags)
-  const cleanDescription = description.replace(/<[^>]*>/g, '');
-  return cleanDescription.slice(0, 200) + '...';
+  // Buscar específicamente después del patrón "review: <br/>"
+  let match = description.match(/<br\/>\s*review:\s*<br\/>\s*(.*?)(?:<br\/>\s*(?:read at|date read|shelved|added)|$)/is);
+  
+  if (match && match[1]) {
+    let reviewText = match[1].trim();
+    
+    // Limpiar HTML tags restantes
+    reviewText = reviewText.replace(/<[^>]*>/g, ' ');
+    
+    // Normalizar espacios
+    reviewText = reviewText.replace(/\s+/g, ' ').trim();
+    
+    // Si hay contenido real de review
+    if (reviewText.length > 5) {
+      // Limitar longitud
+      if (reviewText.length > 300) {
+        reviewText = reviewText.slice(0, 300) + '...';
+      }
+      return reviewText;
+    }
+  }
+  
+  // Método fallback: buscar después de "review:" sin el patrón específico
+  match = description.match(/review:\s*(?:<br\/>\s*)?(.+?)(?:<br\/>\s*(?:read at|date read|shelved|added)|$)/is);
+  
+  if (match && match[1]) {
+    let reviewText = match[1].trim();
+    
+    // Limpiar HTML tags
+    reviewText = reviewText.replace(/<[^>]*>/g, ' ');
+    
+    // Normalizar espacios
+    reviewText = reviewText.replace(/\s+/g, ' ').trim();
+    
+    if (reviewText.length > 5) {
+      // Limitar longitud
+      if (reviewText.length > 300) {
+        reviewText = reviewText.slice(0, 300) + '...';
+      }
+      return reviewText;
+    }
+  }
+  
+  return 'No review available for this book.';
+};
+
+const extractISBN = (description: string): string | undefined => {
+  const match = description.match(/isbn:\s*([\d-]+)/i);
+  return match ? match[1] : undefined;
+};
+
+const extractPages = (description: string): number | undefined => {
+  const match = description.match(/pages:\s*(\d+)/i);
+  return match ? parseInt(match[1]) : undefined;
+};
+
+const extractYearPublished = (description: string): number | undefined => {
+  const match = description.match(/published:\s*(\d{4})/i);
+  return match ? parseInt(match[1]) : undefined;
 };
