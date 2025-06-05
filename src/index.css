@@ -57,3 +57,25 @@
     @apply border-transparent hover:border-md-border-light dark:hover:border-md-border-dark;
   }
 }
+
+/* Para el scroll horizontal en móvil */
+.overflow-x-auto {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Indicador visual de scroll */
+.overflow-x-auto::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.8));
+  pointer-events: none;
+}

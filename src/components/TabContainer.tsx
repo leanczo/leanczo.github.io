@@ -40,17 +40,39 @@ const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode }) => {
 
   return (
     <div className="mb-8">
-      <div className="flex flex-wrap border-b border-md-border-light dark:border-md-border-dark mb-6">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`tab ${activeTab === tab.id ? 'active' : 'inactive'
-              }`}
-          >
-            {tab.label}
-          </button>
-        ))}
+      <div className="border-b border-md-border-light dark:border-md-border-dark mb-6">
+        {/* Tabs para desktop */}
+        <div className="hidden md:flex">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`tab ${activeTab === tab.id ? 'active' : 'inactive'}`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Tabs para móvil con scroll */}
+        <div className="md:hidden relative">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex space-x-1 min-w-max px-2">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`tab whitespace-nowrap px-4 py-2 text-sm ${activeTab === tab.id ? 'active' : 'inactive'
+                    }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          {/* Gradiente solo para el contenedor de tabs */}
+          <div className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none bg-gradient-to-l from-white dark:from-gray-900 to-transparent"></div>
+        </div>
       </div>
 
       <AnimatePresence mode="wait">
