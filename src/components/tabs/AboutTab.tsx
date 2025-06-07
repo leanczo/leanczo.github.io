@@ -10,7 +10,7 @@ interface AboutTabProps {
 const AboutTab: React.FC<AboutTabProps> = ({ isDarkMode, language }) => {
   const { t } = useTranslation(language);
 
-  const bioCode = `/**
+  const bioCodeEn = `/**
  * About Leandro Cardozo
  * Full Stack Developer with a passion for creating
  * efficient, elegant solutions to complex problems.
@@ -19,7 +19,7 @@ const AboutTab: React.FC<AboutTabProps> = ({ isDarkMode, language }) => {
 const leandro = {
   location: "Salta, Argentina",
   languages: ["JavaScript", "TypeScript", "C#", "Python"],
-  frameworks: ["React", "Angular", "NET Core", "NestJS"],
+  frameworks: ["React", "Angular", ".NET Core", "NestJS"],
   mobile: ["Xamarin", "Flutter"],
   databases: ["PostgreSQL", "MySQL"],
   currentFocus: "Full Stack Development",
@@ -30,6 +30,29 @@ const leandro = {
     "Trekking"
   ]
 };`;
+
+  const bioCodeEs = `/**
+ * Acerca de Leandro Cardozo
+ * Desarrollador Full Stack con pasión por crear
+ * soluciones eficientes y elegantes a problemas complejos.
+ */
+
+const leandro = {
+  ubicacion: "Salta, Argentina",
+  lenguajes: ["JavaScript", "TypeScript", "C#", "Python"],
+  frameworks: ["React", "Angular", ".NET Core", "NestJS"],
+  movil: ["Xamarin", "Flutter"],
+  baseDeDatos: ["PostgreSQL", "MySQL"],
+  enfoqueActual: "Desarrollo Full Stack",
+  intereses: [
+    "Desarrollo Web",
+    "Apps Móviles",
+    "Código Abierto",
+    "Trekking"
+  ]
+};`;
+
+  const bioCode = language === 'en' ? bioCodeEn : bioCodeEs;
 
   return (
     <div>

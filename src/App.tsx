@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Globe } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import Header from './components/Header';
 import TabContainer from './components/TabContainer';
 import Footer from './components/Footer';
@@ -57,12 +57,12 @@ function App() {
       script.setAttribute('data-emit-metadata', '0');
       script.setAttribute('data-input-position', 'bottom');
       script.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-      script.setAttribute('data-lang', 'en');
+      script.setAttribute('data-lang', language);
       script.crossOrigin = 'anonymous';
       script.async = true;
       commentsDiv.appendChild(script);
     }
-  }, [isDarkMode, isThemeReady]);
+  }, [isDarkMode, isThemeReady, language]);
 
   useEffect(() => {
     if (!isThemeReady) return;
@@ -73,13 +73,14 @@ function App() {
           giscus: {
             setConfig: {
               theme: isDarkMode ? 'dark' : 'light',
+              lang: language,
             },
           },
         },
         'https://giscus.app'
       );
     }
-  }, [isDarkMode, isThemeReady]);
+  }, [isDarkMode, language, isThemeReady]);
 
   return (
     <div className="min-h-screen bg-md-bg-light dark:bg-md-bg-dark text-md-text-light dark:text-md-text-dark transition-colors duration-300">

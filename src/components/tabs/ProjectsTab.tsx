@@ -121,6 +121,7 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
               description={project.description}
               icon={project.icon}
               link={project.link}
+              language={language}
             />
           ))}
         </div>
@@ -137,6 +138,7 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
               icon={project.icon}
               link={project.link}
               meta={`${project.downloads} downloads`}
+              language={language}
             />
           ))}
         </div>
@@ -153,6 +155,7 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
               icon={project.icon}
               link={project.link}
               meta={project.downloads ? `${project.downloads} ${t('downloadsText')}` : undefined}
+              language={language}
             />
           ))}
         </div>

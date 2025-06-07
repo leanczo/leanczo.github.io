@@ -11,8 +11,6 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
   const { t } = useTranslation(language);
   const { books, loading, error } = useGoodreadsBooks('95181601');
 
-  console.log('Books fetched:', books);
-
   const renderStars = (rating: number) => {
     if (rating === 0) {
       return <span className="text-sm text-md-text-light/60 dark:text-md-text-dark/60">No rating</span>;
@@ -25,8 +23,8 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
             key={i}
             size={14}
             className={`${i < rating
-                ? 'fill-yellow-400 text-yellow-400'
-                : 'text-md-border-light dark:text-md-border-dark'
+              ? 'fill-yellow-400 text-yellow-400'
+              : 'text-md-border-light dark:text-md-border-dark'
               }`}
           />
         ))}
@@ -49,24 +47,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
     }
   };
 
-  const getActivityText = (activity: string) => {
-    switch (activity) {
-      case 'read':
-        return 'Finished reading';
-      case 'currently-reading':
-        return 'Currently reading';
-      case 'want-to-read':
-        return 'Wants to read';
-      case 'reviewed':
-        return 'Reviewed';
-      case 'added':
-        return 'Added to library';
-      default:
-        return 'Updated';
-    }
-  };
-
-  const getActivityColor = (activity: string) => {
+   const getActivityColor = (activity: string) => {
     switch (activity) {
       case 'read':
         return 'text-green-600 dark:text-green-400';
@@ -81,6 +62,23 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
     }
   };
 
+  const getActivityText = (activity: string) => {
+    switch (activity) {
+      case 'read':
+        return t('finishedReading');
+      case 'currently-reading':
+        return t('currentlyReading');
+      case 'want-to-read':
+        return t('wantsToRead');
+      case 'reviewed':
+        return t('reviewed');
+      case 'added':
+        return t('addedToLibrary');
+      default:
+        return t('updated');
+    }
+  };
+
   const formatDate = (dateString: string) => {
     if (!dateString) return null;
     try {
@@ -90,14 +88,14 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
       if (diffDays === 1) {
-        return 'Yesterday';
+        return t('yesterday');
       } else if (diffDays < 7) {
-        return `${diffDays} days ago`;
+        return `${diffDays} ${diffDays === 1 ? t('dayAgo') : t('daysAgo')}`;
       } else if (diffDays < 30) {
         const weeks = Math.floor(diffDays / 7);
-        return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
+        return `${weeks} ${weeks === 1 ? t('weekAgo') : t('weeksAgo')}`;
       } else {
-        return date.toLocaleDateString('en-US', {
+        return date.toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', {
           year: 'numeric',
           month: 'short',
           day: 'numeric'
@@ -112,7 +110,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
     return (
       <div className="flex items-center justify-center py-12">
         <Loader2 className="animate-spin text-md-text-light dark:text-md-text-dark mr-3" size={24} />
-        <span className="text-md-text-light dark:text-md-text-dark">Loading recent activity from Goodreads...</span>
+        <span className="text-md-text-light dark:text-md-text-dark">{t('loadingBooks')}</span>
       </div>
     );
   }
@@ -122,7 +120,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
       <div className="text-center py-12">
         <AlertCircle className="mx-auto text-red-500 mb-4" size={48} />
         <h3 className="text-lg font-medium text-md-text-light dark:text-md-text-dark mb-2">
-          Unable to load reading activity
+          {t('unableToLoadBooks')}
         </h3>
         <p className="text-md-text-light/70 dark:text-md-text-dark/70 mb-4">{error}</p>
         <a
@@ -131,7 +129,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-md-link-light dark:text-md-link-dark hover:underline"
         >
-          View my profile on Goodreads <ExternalLink size={16} />
+          {t('viewGoodreadsProfile')} <ExternalLink size={16} />
         </a>
       </div>
     );
@@ -142,10 +140,10 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
       <div className="text-center py-12">
         <BookOpen className="mx-auto text-md-text-light/50 dark:text-md-text-dark/50 mb-4" size={48} />
         <h3 className="text-lg font-medium text-md-text-light dark:text-md-text-dark mb-2">
-          No recent activity found
+          {t('noRecentActivity')}
         </h3>
         <p className="text-md-text-light/70 dark:text-md-text-dark/70 mb-4">
-          Check back later for my latest reading updates.
+          {t('checkBackLater')}
         </p>
         <a
           href="https://www.goodreads.com/user/show/95181601-leandro-cardozo"
@@ -153,7 +151,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-md-link-light dark:text-md-link-dark hover:underline"
         >
-          View my Goodreads profile <ExternalLink size={16} />
+          {t('viewMyGoodreadsProfile')} <ExternalLink size={16} />
         </a>
       </div>
     );
@@ -165,7 +163,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
       <div className="flex items-center gap-2 pb-4 border-b border-md-border-light dark:border-md-border-dark">
         <BookOpen className="text-md-text-light dark:text-md-text-dark" size={24} />
         <h2 className="text-xl font-semibold text-md-text-light dark:text-md-text-dark">
-          Recent Reading Activity ({books.length})
+          {t('booksTitle')} ({books.length})
         </h2>
         <a
           href="https://www.goodreads.com/user/show/95181601-leandro-cardozo"
@@ -173,7 +171,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
           rel="noopener noreferrer"
           className="ml-auto text-md-link-light dark:text-md-link-dark hover:underline text-sm flex items-center gap-1"
         >
-          View full profile <ExternalLink size={14} />
+          {t('viewFullProfile')} <ExternalLink size={14} />
         </a>
       </div>
 
@@ -236,11 +234,11 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
                   {book.pages && (
                     <div className="flex items-center gap-1">
                       <FileText size={12} />
-                      <span>{book.pages} pages</span>
+                      <span>{book.pages} {t('pages')}</span>
                     </div>
                   )}
                   {book.yearPublished && (
-                    <span>Published {book.yearPublished}</span>
+                    <span>{t('published')} {book.yearPublished}</span>
                   )}
                   {book.shelf && (
                     <span className="bg-md-code-bg-light dark:bg-md-code-bg-dark px-2 py-1 rounded text-xs">
@@ -265,7 +263,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-md-link-light dark:text-md-link-dark text-sm hover:underline font-medium"
                 >
-                  View on Goodreads <ExternalLink size={12} />
+                  {t('viewOnGoodreads')} <ExternalLink size={12} />
                 </a>
               </div>
             </div>
@@ -276,7 +274,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
       {/* Footer */}
       <div className="text-center pt-4 border-t border-md-border-light dark:border-md-border-dark">
         <p className="text-sm text-md-text-light/60 dark:text-md-text-dark/60 mb-2">
-          This shows my most recent reading activity from Goodreads
+          {t('recentActivityFooter')}
         </p>
         <a
           href="https://www.goodreads.com/user/show/95181601-leandro-cardozo"
@@ -284,7 +282,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
           rel="noopener noreferrer"
           className="text-md-link-light dark:text-md-link-dark hover:underline text-sm font-medium"
         >
-          Follow my reading journey on Goodreads
+          {t('followReadingJourney')}
         </a>
       </div>
     </div>

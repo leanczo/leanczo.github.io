@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { ExternalLink } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface ProjectCardProps {
   title: string;
@@ -7,9 +8,11 @@ interface ProjectCardProps {
   icon: ReactNode;
   link: string;
   meta?: string;
+  language: 'en' | 'es';
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, link, meta }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, link, meta, language }) => {
+  const { t } = useTranslation(language);
   return (
     <div className="p-4 border border-md-border-light dark:border-md-border-dark rounded-lg transition-all hover:shadow-md">
       <div className="flex items-start">
@@ -37,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, lin
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-md-link-light dark:text-md-link-dark text-sm hover:underline"
           >
-            View Project <ExternalLink size={14} />
+            {t('viewProject')} <ExternalLink size={14} />
           </a>
         </div>
       </div>

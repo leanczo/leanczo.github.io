@@ -11,7 +11,7 @@ const ExperienceTab: React.FC<ExperienceTabProps> = ({ language }) => {
     {
       company: 'Asap Consulting S.A.',
       title: t('fullStackDeveloper'),
-      period: 'Oct 2023 - Present',
+      period: `Oct 2023 - ${t('present')}`,
       location: t('buenosAiresRemote'),
       description: [
         t('asapJob1'),
@@ -68,7 +68,7 @@ const ExperienceTab: React.FC<ExperienceTabProps> = ({ language }) => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-6">Professional Experience</h2>
+      <h2 className="text-2xl font-semibold mb-6">{t('workExperience')}</h2>
 
       <div className="space-y-8">
         {experiences.map((exp, index) => (

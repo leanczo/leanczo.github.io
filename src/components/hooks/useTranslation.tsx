@@ -17,16 +17,12 @@ export const translations = {
         // About section
         aboutMe: 'About Me',
 
-        // Experience
-        workExperience: 'Work Experience',
-
         // Projects
         myProjects: 'My Projects',
         viewProject: 'View Project',
         viewCode: 'View Code',
 
         // Books
-        currentlyReading: 'Currently Reading',
         readBooks: 'Books I\'ve Read',
         rating: 'Rating',
 
@@ -40,6 +36,8 @@ export const translations = {
         aboutTabOthers: 'Other',
 
         // Experience Tab - Job Descriptions
+        workExperience: 'Work Experience',
+        present: 'Presente',
         asapJob1: 'Development of a complete system module using React.js and .NET Core.',
         asapJob2: 'Migration of legacy functionalities based on Visual Basic 6, ensuring business continuity and improved efficiency.',
         asapJob3: 'Implementation of corrections in legacy code to optimize system performance and maintainability.',
@@ -124,6 +122,37 @@ export const translations = {
         // Language Names
         englishLanguage: 'English',
         spanishLanguage: 'Spanish',
+
+         // Books Tab
+        booksTitle: 'Recent Reading Activity',
+        loadingBooks: 'Loading recent activity from Goodreads...',
+        unableToLoadBooks: 'Unable to load reading activity',
+        viewGoodreadsProfile: 'View my profile on Goodreads',
+        viewFullProfile: 'View full profile',
+        noRecentActivity: 'No recent activity found',
+        checkBackLater: 'Check back later for my latest reading updates.',
+        viewMyGoodreadsProfile: 'View my Goodreads profile',
+        followReadingJourney: 'Follow my reading journey on Goodreads',
+        recentActivityFooter: 'This shows my most recent reading activity from Goodreads',
+        viewOnGoodreads: 'View on Goodreads',
+        noRating: 'No rating',
+        pages: 'pages',
+        published: 'Published',
+        
+        // Activity types
+        finishedReading: 'Finished reading',
+        currentlyReading: 'Currently reading',
+        wantsToRead: 'Wants to read',
+        reviewed: 'Reviewed',
+        addedToLibrary: 'Added to library',
+        updated: 'Updated',
+
+        // Date formatting
+        yesterday: 'Yesterday',
+        daysAgo: 'days ago',
+        dayAgo: 'day ago',
+        weeksAgo: 'weeks ago',
+        weekAgo: 'week ago',
     },
     es: {
         // Navigation
@@ -144,16 +173,12 @@ export const translations = {
         // About section
         aboutMe: 'Acerca de Mí',
 
-        // Experience
-        workExperience: 'Experiencia Laboral',
-
         // Projects
         myProjects: 'Mis Proyectos',
         viewProject: 'Ver Proyecto',
         viewCode: 'Ver Código',
 
         // Books
-        currentlyReading: 'Leyendo Actualmente',
         readBooks: 'Libros que he Leído',
         rating: 'Calificación',
 
@@ -166,6 +191,8 @@ export const translations = {
         aboutTabOthers: 'Otros',
 
         // Experience Tab - Job Descriptions
+        workExperience: 'Experiencia Laboral',
+        present: 'Presente',
         asapJob1: 'Desarrollo de un módulo completo del sistema utilizando React.js y .NET Core.',
         asapJob2: 'Migración de funcionalidades legacy basadas en Visual Basic 6, asegurando la continuidad del negocio y mejorando la eficiencia.',
         asapJob3: 'Implementación de correcciones en código legacy para optimizar el rendimiento y mantenibilidad del sistema.',
@@ -249,6 +276,37 @@ export const translations = {
         // Language Names
         englishLanguage: 'Inglés',
         spanishLanguage: 'Español',
+
+        // Books Tab
+        booksTitle: 'Actividad de Lectura Reciente',
+        loadingBooks: 'Cargando actividad reciente de Goodreads...',
+        unableToLoadBooks: 'No se pudo cargar la actividad de lectura',
+        viewGoodreadsProfile: 'Ver mi perfil en Goodreads',
+        viewFullProfile: 'Ver perfil completo',
+        noRecentActivity: 'No se encontró actividad reciente',
+        checkBackLater: 'Vuelve más tarde para ver mis últimas actualizaciones de lectura.',
+        viewMyGoodreadsProfile: 'Ver mi perfil de Goodreads',
+        followReadingJourney: 'Sigue mi viaje de lectura en Goodreads',
+        recentActivityFooter: 'Esto muestra mi actividad de lectura más reciente de Goodreads',
+        viewOnGoodreads: 'Ver en Goodreads',
+        noRating: 'Sin calificación',
+        pages: 'páginas',
+        published: 'Publicado',
+        
+        // Activity types
+        finishedReading: 'Terminó de leer',
+        currentlyReading: 'Leyendo actualmente',
+        wantsToRead: 'Quiere leer',
+        reviewed: 'Reseñó',
+        addedToLibrary: 'Agregó a la biblioteca',
+        updated: 'Actualizado',
+
+        // Date formatting
+        yesterday: 'Ayer',
+        daysAgo: 'días atrás',
+        dayAgo: 'día atrás',
+        weeksAgo: 'semanas atrás',
+        weekAgo: 'semana atrás',
     }
 };
 
