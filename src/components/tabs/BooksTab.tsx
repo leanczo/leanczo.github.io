@@ -1,8 +1,14 @@
 import React from 'react';
 import { BookOpen, ExternalLink, Star, Loader2, AlertCircle, FileText, Plus, Eye, CheckCircle, MessageSquare } from 'lucide-react';
 import { useGoodreadsBooks } from '../hooks/useGoodreadsBooks';
+import { useTranslation } from '../hooks/useTranslation';
 
-const BooksTab: React.FC = () => {
+interface BooksTabProps {
+  language: 'en' | 'es';
+}
+
+const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
+  const { t } = useTranslation(language);
   const { books, loading, error } = useGoodreadsBooks('95181601');
 
   console.log('Books fetched:', books);
@@ -11,18 +17,17 @@ const BooksTab: React.FC = () => {
     if (rating === 0) {
       return <span className="text-sm text-md-text-light/60 dark:text-md-text-dark/60">No rating</span>;
     }
-    
+
     return (
       <div className="flex items-center gap-1">
         {Array.from({ length: 5 }, (_, i) => (
           <Star
             key={i}
             size={14}
-            className={`${
-              i < rating 
-                ? 'fill-yellow-400 text-yellow-400' 
+            className={`${i < rating
+                ? 'fill-yellow-400 text-yellow-400'
                 : 'text-md-border-light dark:text-md-border-dark'
-            }`}
+              }`}
           />
         ))}
       </div>
@@ -83,7 +88,7 @@ const BooksTab: React.FC = () => {
       const now = new Date();
       const diffTime = Math.abs(now.getTime() - date.getTime());
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      
+
       if (diffDays === 1) {
         return 'Yesterday';
       } else if (diffDays < 7) {
@@ -92,10 +97,10 @@ const BooksTab: React.FC = () => {
         const weeks = Math.floor(diffDays / 7);
         return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
       } else {
-        return date.toLocaleDateString('en-US', { 
-          year: 'numeric', 
-          month: 'short', 
-          day: 'numeric' 
+        return date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
         });
       }
     } catch {
@@ -120,7 +125,7 @@ const BooksTab: React.FC = () => {
           Unable to load reading activity
         </h3>
         <p className="text-md-text-light/70 dark:text-md-text-dark/70 mb-4">{error}</p>
-        <a 
+        <a
           href="https://www.goodreads.com/user/show/95181601-leandro-cardozo"
           target="_blank"
           rel="noopener noreferrer"
@@ -142,7 +147,7 @@ const BooksTab: React.FC = () => {
         <p className="text-md-text-light/70 dark:text-md-text-dark/70 mb-4">
           Check back later for my latest reading updates.
         </p>
-        <a 
+        <a
           href="https://www.goodreads.com/user/show/95181601-leandro-cardozo"
           target="_blank"
           rel="noopener noreferrer"
@@ -162,7 +167,7 @@ const BooksTab: React.FC = () => {
         <h2 className="text-xl font-semibold text-md-text-light dark:text-md-text-dark">
           Recent Reading Activity ({books.length})
         </h2>
-        <a 
+        <a
           href="https://www.goodreads.com/user/show/95181601-leandro-cardozo"
           target="_blank"
           rel="noopener noreferrer"

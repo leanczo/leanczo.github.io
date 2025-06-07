@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, Globe } from 'lucide-react';
 import Header from './components/Header';
 import TabContainer from './components/TabContainer';
 import Footer from './components/Footer';
@@ -7,11 +7,17 @@ import Footer from './components/Footer';
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isThemeReady, setIsThemeReady] = useState(false);
+  const [language, setLanguage] = useState<'en' | 'es'>('en');
 
   useEffect(() => {
-    // Check user preference
+    // Check user preference for theme
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setIsDarkMode(prefersDark);
+
+    // Check user preference for language
+    const userLang = navigator.language.startsWith('es') ? 'es' : 'en';
+    setLanguage(userLang);
+
     setIsThemeReady(true);
   }, []);
 
@@ -23,10 +29,16 @@ function App() {
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [isDarkMode, isThemeReady]);
+    // Set language attribute
+    document.documentElement.lang = language;
+  }, [isDarkMode, language, isThemeReady]);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(prev => prev === 'en' ? 'es' : 'en');
   };
 
   useEffect(() => {
@@ -71,7 +83,15 @@ function App() {
 
   return (
     <div className="min-h-screen bg-md-bg-light dark:bg-md-bg-dark text-md-text-light dark:text-md-text-dark transition-colors duration-300">
-      <div className="fixed top-4 right-4 z-50">
+      {/* Theme and Language Controls */}
+      <div className="fixed top-4 right-4 z-50 flex gap-2">
+        <button
+          onClick={toggleLanguage}
+          className="p-2 rounded-full bg-md-code-bg-light dark:bg-md-code-bg-dark hover:bg-md-border-light dark:hover:bg-md-border-dark transition-colors text-lg"
+          aria-label={`Switch to ${language === 'en' ? 'Spanish' : 'English'}`}
+        >
+          {language === 'en' ? '🇪🇸' : '🇺🇸'}
+        </button>
         <button
           onClick={toggleTheme}
           className="p-2 rounded-full bg-md-code-bg-light dark:bg-md-code-bg-dark hover:bg-md-border-light dark:hover:bg-md-border-dark transition-colors"
@@ -80,11 +100,12 @@ function App() {
           {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
         </button>
       </div>
+
       <div className="markdown-body container mx-auto px-4 py-8 max-w-4xl">
-        <Header />
-        <TabContainer isDarkMode={isDarkMode} />
+        <Header language={language} />
+        <TabContainer isDarkMode={isDarkMode} language={language} />
         {isThemeReady && <div className="giscus" />}
-        <Footer />
+        <Footer language={language} />
       </div>
     </div>
   );

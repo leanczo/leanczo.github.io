@@ -1,40 +1,43 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from './hooks/useTranslation';
 import AboutTab from './tabs/AboutTab';
 import ExperienceTab from './tabs/ExperienceTab';
 import ProjectsTab from './tabs/ProjectsTab';
 import CertificationsTab from './tabs/CertificationsTab';
 import BooksTab from './tabs/BooksTab';
 
-const tabs = [
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'certifications', label: 'Certifications' },
-  { id: 'books', label: 'Books' },
-];
-
 interface TabContainerProps {
   isDarkMode: boolean;
+  language: 'en' | 'es';
 }
 
-const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode }) => {
+const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode, language }) => {
+  const { t } = useTranslation(language);
   const [activeTab, setActiveTab] = useState('about');
+
+  const tabs = [
+    { id: 'about', label: t('about') },
+    { id: 'experience', label: t('experience') },
+    { id: 'projects', label: t('projects') },
+    { id: 'certifications', label: t('certifications') },
+    { id: 'books', label: t('books') },
+  ];
 
   const renderTabContent = () => {
     switch (activeTab) {
       case 'about':
-        return <AboutTab isDarkMode={isDarkMode} />;
+        return <AboutTab isDarkMode={isDarkMode} language={language} />;
       case 'experience':
-        return <ExperienceTab />;
+        return <ExperienceTab language={language} />;
       case 'projects':
-        return <ProjectsTab />;
+        return <ProjectsTab language={language} />;
       case 'certifications':
-        return <CertificationsTab />;
+        return <CertificationsTab language={language} />;
       case 'books':
-        return <BooksTab />;
+        return <BooksTab language={language} />;
       default:
-        return <AboutTab isDarkMode={isDarkMode} />;
+        return <AboutTab isDarkMode={isDarkMode} language={language} />;
     }
   };
 
@@ -62,8 +65,9 @@ const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode }) => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`tab whitespace-nowrap px-4 py-2 text-sm ${activeTab === tab.id ? 'active' : 'inactive'
-                    }`}
+                  className={`tab whitespace-nowrap px-4 py-2 text-sm ${
+                    activeTab === tab.id ? 'active' : 'inactive'
+                  }`}
                 >
                   {tab.label}
                 </button>

@@ -1,7 +1,13 @@
 import React from 'react';
 import { Award, User } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
 
-const CertificationsTab: React.FC = () => {
+interface CertificationsTabProps {
+  language: 'en' | 'es';
+}
+
+const CertificationsTab: React.FC<CertificationsTabProps> = ({ language }) => {
+  const { t } = useTranslation(language);
   const certifications = [
     {
       title: 'Meta Backend Developer',
@@ -36,18 +42,18 @@ const CertificationsTab: React.FC = () => {
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-6">Certifications & Languages</h2>
-      
+
       <div className="space-y-6">
         {certifications.map((cert, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="p-4 border border-md-border-light dark:border-md-border-dark rounded-lg transition-all hover:shadow-md"
           >
             <div className="flex items-start">
               <div className="mr-4 p-2 bg-md-code-bg-light dark:bg-md-code-bg-dark rounded-full">
                 <Award size={24} className="text-md-link-light dark:text-md-link-dark" />
               </div>
-              
+
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                   <h3 className="text-xl font-medium !mt-0">{cert.title}</h3>
@@ -55,18 +61,18 @@ const CertificationsTab: React.FC = () => {
                     {cert.date}
                   </span>
                 </div>
-                
+
                 <p className="text-md-text-light/80 dark:text-md-text-dark/80 mb-2">
                   {cert.issuer}
                 </p>
-                
+
                 {cert.skills && (
                   <div className="mb-3">
                     <h4 className="text-sm font-medium mb-1">Skills</h4>
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, i) => (
-                        <span 
-                          key={i} 
+                        <span
+                          key={i}
                           className="px-2 py-1 text-xs rounded-md bg-md-code-bg-light dark:bg-md-code-bg-dark"
                         >
                           {skill}
@@ -75,16 +81,16 @@ const CertificationsTab: React.FC = () => {
                     </div>
                   </div>
                 )}
-                
+
                 {cert.score && (
                   <p className="text-sm">
                     <span className="font-medium">Score:</span> {cert.score}
                   </p>
                 )}
-                
-                <a 
-                  href={cert.link} 
-                  target="_blank" 
+
+                <a
+                  href={cert.link}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-2 text-md-link-light dark:text-md-link-dark text-sm hover:underline"
                 >
@@ -95,13 +101,13 @@ const CertificationsTab: React.FC = () => {
           </div>
         ))}
       </div>
-      
+
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-4">
           <User size={20} />
           <h3 className="text-xl font-medium">Languages</h3>
         </div>
-        
+
         <div className="space-y-4">
           <div className="flex flex-col">
             <div className="flex justify-between mb-1">
@@ -112,7 +118,7 @@ const CertificationsTab: React.FC = () => {
               <div className="bg-md-link-light dark:bg-md-link-dark h-2 rounded-full" style={{ width: '85%' }}></div>
             </div>
           </div>
-          
+
           <div className="flex flex-col">
             <div className="flex justify-between mb-1">
               <span className="font-medium">Spanish</span>

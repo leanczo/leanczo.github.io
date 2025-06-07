@@ -1,52 +1,58 @@
 import React from 'react';
+import { useTranslation } from '../hooks/useTranslation';
 
-const ExperienceTab: React.FC = () => {
+interface ExperienceTabProps {
+  language: 'en' | 'es';
+}
+
+const ExperienceTab: React.FC<ExperienceTabProps> = ({ language }) => {
+  const { t } = useTranslation(language);
   const experiences = [
     {
       company: 'Asap Consulting S.A.',
-      title: 'Full Stack Developer',
+      title: t('fullStackDeveloper'),
       period: 'Oct 2023 - Present',
-      location: 'Provincia de Buenos Aires, Argentina (Remote)',
+      location: t('buenosAiresRemote'),
       description: [
-        'Development of a complete system module using React.js and .NET Core.',
-        'Migration of legacy functionalities based on Visual Basic 6, ensuring business continuity and improved efficiency.',
-        'Implementation of corrections in legacy code to optimize system performance and maintainability.',
+        t('asapJob1'),
+        t('asapJob2'),
+        t('asapJob3'),
       ],
       skills: ['.NET Core', 'React.js'],
     },
     {
       company: 'Siltium',
-      title: 'Ssr. Backend Developer',
+      title: t('ssrBackendDeveloper'),
       period: 'May 2023 - Sep 2023',
-      location: 'Salta, Argentina (Hybrid)',
+      location: t('saltaHybrid'),
       description: [
-        'Implementation of RESTful APIs in .NET Core (C#) using PostgreSQL as database, with a focus on unit testing.',
-        'Integration with the Vimeo platform, and authentication with Firebase.',
-        'Interaction with third-party SOAP APIs.',
+        t('siltiumSsr1'),
+        t('siltiumSsr2'),
+        t('siltiumSsr3'),
       ],
       skills: ['.NET Core'],
     },
     {
       company: 'Siltium',
-      title: 'Ssr. Full Stack Developer',
+      title: t('ssrFullStackDeveloper'),
       period: 'Mar 2021 - May 2023',
-      location: 'Salta, Argentina (Hybrid)',
+      location: t('saltaHybrid'),
       description: [
-        'Development in Angular with NgRx and React with TypeScript.',
-        'Backend with .NET Core and NestJS (GraphQL), using both MySQL and PostgreSQL.',
-        'Integration with Docusign, Tipalti, and Quickbooks platforms.',
-        'Implementation of a dashboard with KPIs to quantify results.',
+        t('siltiumFull1'),
+        t('siltiumFull2'),
+        t('siltiumFull3'),
+        t('siltiumFull4'),
       ],
       skills: ['Angular', '.NET Core', 'React', 'NestJS', 'GraphQL'],
     },
     {
       company: 'Siltium',
-      title: 'Jr. Mobile Developer',
+      title: t('jrMobileDeveloper'),
       period: 'Jun 2019 - Mar 2021',
-      location: 'Salta, Argentina (On-site)',
+      location: t('saltaOnsite'),
       description: [
-        'Participation in 11 projects of various purposes using Xamarin and Flutter.',
-        'Bug fixing in legacy projects.',
+        t('siltiumMobile1'),
+        t('siltiumMobile2'),
       ],
       skills: ['.NET Core', 'Flutter', 'Xamarin'],
     },
@@ -54,8 +60,8 @@ const ExperienceTab: React.FC = () => {
 
   const education = [
     {
-      institution: 'Universidad Católica de Salta (UCASAL)',
-      degree: 'Degree in Engineering, Computer Engineering',
+      institution: t('universityName'),
+      degree: t('degreeTitle'),
       period: '2014 - 2019',
     },
   ];
@@ -88,7 +94,7 @@ const ExperienceTab: React.FC = () => {
             </ul>
             <div className="flex flex-wrap gap-2">
               {exp.skills.map((skill, i) => (
-                <span 
+                <span
                   key={i}
                   className="px-2 py-1 text-xs rounded-md bg-md-code-bg-light dark:bg-md-code-bg-dark"
                 >
@@ -101,7 +107,7 @@ const ExperienceTab: React.FC = () => {
       </div>
 
       <h2 className="text-2xl font-semibold mt-10 mb-6">Education</h2>
-      
+
       <div className="space-y-6">
         {education.map((edu, index) => (
           <div key={index} className="border-l-2 border-md-border-light dark:border-md-border-dark pl-4">

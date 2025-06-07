@@ -1,7 +1,14 @@
 import React from 'react';
 import { Github, Linkedin, Mail, Coffee } from 'lucide-react';
+import { useTranslation } from './hooks/useTranslation';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  language: 'en' | 'es';
+}
+
+const Header: React.FC<HeaderProps> = ({ language }) => {
+  const { t } = useTranslation(language);
+
   return (
     <header className="mb-8">
       <h1 className="text-4xl font-bold mb-4">Leandro Cardozo</h1>
@@ -16,34 +23,34 @@ const Header: React.FC = () => {
           </span>
         </div>
         <div className="flex gap-4">
-          <a 
-            href="https://github.com/leanczo" 
-            target="_blank" 
+          <a
+            href="https://github.com/leanczo"
+            target="_blank"
             rel="noopener noreferrer"
             className="text-md-text-light/70 dark:text-md-text-dark/70 hover:text-md-link-light dark:hover:text-md-link-dark transition-colors"
             aria-label="GitHub Profile"
           >
             <Github size={20} />
           </a>
-          <a 
-            href="https://linkedin.com/in/leanczo/" 
-            target="_blank" 
+          <a
+            href="https://linkedin.com/in/leanczo/"
+            target="_blank"
             rel="noopener noreferrer"
             className="text-md-text-light/70 dark:text-md-text-dark/70 hover:text-md-link-light dark:hover:text-md-link-dark transition-colors"
             aria-label="LinkedIn Profile"
           >
             <Linkedin size={20} />
           </a>
-          <a 
-            href="mailto:leandro.deploya@gmail.com" 
+          <a
+            href="mailto:leandro.deploya@gmail.com"
             className="text-md-text-light/70 dark:text-md-text-dark/70 hover:text-md-link-light dark:hover:text-md-link-dark transition-colors"
             aria-label="Email Contact"
           >
             <Mail size={20} />
           </a>
-          <a 
-            href="https://buymeacoffee.com/leanczo" 
-            target="_blank" 
+          <a
+            href="https://buymeacoffee.com/leanczo"
+            target="_blank"
             rel="noopener noreferrer"
             className="text-md-text-light/70 dark:text-md-text-dark/70 hover:text-md-link-light dark:hover:text-md-link-dark transition-colors"
             aria-label="Buy me a coffee"
@@ -53,8 +60,7 @@ const Header: React.FC = () => {
         </div>
       </div>
       <p className="text-lg">
-        Full Stack Developer with experience in React, Angular, .NET Core, and mobile development.
-        Passionate about building user-friendly applications and solving complex problems.
+        {t('headerDescription')}
       </p>
     </header>
   );

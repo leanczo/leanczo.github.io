@@ -1,8 +1,14 @@
 import React from 'react';
 import ProjectCard from '../ui/ProjectCard';
 import { ExternalLink, Chrome, Watch, Code } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
 
-const ProjectsTab: React.FC = () => {
+interface ProjectsTabProps {
+  language: 'en' | 'es';
+}
+
+const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
+  const { t } = useTranslation(language);
   const chromeExtensions = [
     {
       title: 'Reddit Usernames Anon',
@@ -93,7 +99,7 @@ const ProjectsTab: React.FC = () => {
       icon: <Code size={20} />,
       link: 'https://marketplace.visualstudio.com/items?itemName=leanczo.blue-dollar'
     },
-      {
+    {
       title: 'Hi English Online',
       description: 'A web application for an English teaching platform',
       icon: <Code size={20} />,
@@ -104,12 +110,12 @@ const ProjectsTab: React.FC = () => {
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-6">Projects</h2>
-      
+
       <section className="mb-8">
         <h3 className="text-xl font-medium mb-4">Chrome Web Store Extensions</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {chromeExtensions.map((project, index) => (
-            <ProjectCard 
+            <ProjectCard
               key={index}
               title={project.title}
               description={project.description}
@@ -119,12 +125,12 @@ const ProjectsTab: React.FC = () => {
           ))}
         </div>
       </section>
-      
+
       <section className="mb-8">
         <h3 className="text-xl font-medium mb-4">Garmin Connect IQ Watch Faces</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {watchFaces.map((project, index) => (
-            <ProjectCard 
+            <ProjectCard
               key={index}
               title={project.title}
               description={project.description}
@@ -135,12 +141,12 @@ const ProjectsTab: React.FC = () => {
           ))}
         </div>
       </section>
-      
+
       <section>
         <h3 className="text-xl font-medium mb-4">Other Projects</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {otherProjects.map((project, index) => (
-            <ProjectCard 
+            <ProjectCard
               key={index}
               title={project.title}
               description={project.description}
