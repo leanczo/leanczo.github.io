@@ -58,24 +58,21 @@ const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode, language }) => 
         </div>
 
         {/* Tabs para móvil con scroll */}
-        <div className="md:hidden relative">
+        <div className="md:hidden relative tabs-scroll-gradient">
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex space-x-1 min-w-max px-2">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`tab whitespace-nowrap px-4 py-2 text-sm ${
-                    activeTab === tab.id ? 'active' : 'inactive'
-                  }`}
+                  className={`tab whitespace-nowrap px-4 py-2 text-sm ${activeTab === tab.id ? 'active' : 'inactive'
+                    }`}
                 >
                   {tab.label}
                 </button>
               ))}
             </div>
           </div>
-          {/* Gradiente solo para el contenedor de tabs */}
-          <div className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none bg-gradient-to-l from-white dark:from-gray-900 to-transparent"></div>
         </div>
       </div>
 
