@@ -41,7 +41,7 @@ const CertificationsTab: React.FC<CertificationsTabProps> = ({ language }) => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-6">Certifications & Languages</h2>
+      <h2 className="text-2xl font-semibold mb-6">{t('certificationsTitle')}</h2>
 
       <div className="space-y-6">
         {certifications.map((cert, index) => (
@@ -68,7 +68,7 @@ const CertificationsTab: React.FC<CertificationsTabProps> = ({ language }) => {
 
                 {cert.skills && (
                   <div className="mb-3">
-                    <h4 className="text-sm font-medium mb-1">Skills</h4>
+                    <h4 className="text-sm font-medium mb-1">{t('skillsLabel')}</h4>
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, i) => (
                         <span
@@ -84,7 +84,7 @@ const CertificationsTab: React.FC<CertificationsTabProps> = ({ language }) => {
 
                 {cert.score && (
                   <p className="text-sm">
-                    <span className="font-medium">Score:</span> {cert.score}
+                    <span className="font-medium">{t('scoreLabel')}:</span> {cert.score}
                   </p>
                 )}
 
@@ -94,7 +94,7 @@ const CertificationsTab: React.FC<CertificationsTabProps> = ({ language }) => {
                   rel="noopener noreferrer"
                   className="inline-block mt-2 text-md-link-light dark:text-md-link-dark text-sm hover:underline"
                 >
-                  View Certificate
+                  {t('viewCertificate')}
                 </a>
               </div>
             </div>
@@ -105,14 +105,14 @@ const CertificationsTab: React.FC<CertificationsTabProps> = ({ language }) => {
       <div className="mt-10">
         <div className="flex items-center gap-3 mb-4">
           <User size={20} />
-          <h3 className="text-xl font-medium">Languages</h3>
+          <h3 className="text-xl font-medium">{t('languagesTitle')}</h3>
         </div>
 
         <div className="space-y-4">
           <div className="flex flex-col">
             <div className="flex justify-between mb-1">
-              <span className="font-medium">English</span>
-              <span>C1 Advanced</span>
+              <span className="font-medium">{t('englishLanguage')}</span>
+              <span>{t('advancedLevel')}</span>
             </div>
             <div className="w-full bg-md-border-light dark:bg-md-border-dark rounded-full h-2">
               <div className="bg-md-link-light dark:bg-md-link-dark h-2 rounded-full" style={{ width: '85%' }}></div>
@@ -121,8 +121,8 @@ const CertificationsTab: React.FC<CertificationsTabProps> = ({ language }) => {
 
           <div className="flex flex-col">
             <div className="flex justify-between mb-1">
-              <span className="font-medium">Spanish</span>
-              <span>Native</span>
+              <span className="font-medium">{t('spanishLanguage')}</span>
+              <span>{t('nativeLevel')}</span>
             </div>
             <div className="w-full bg-md-border-light dark:bg-md-border-dark rounded-full h-2">
               <div className="bg-md-link-light dark:bg-md-link-dark h-2 rounded-full" style={{ width: '100%' }}></div>

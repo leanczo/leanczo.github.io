@@ -109,6 +109,21 @@ export const translations = {
         blueDollarDesc: 'Extensión de VS Code para consultar el precio del dólar blue en Argentina',
         hiEnglishTitle: 'Hi English Online',
         hiEnglishDesc: 'Una aplicación web para una plataforma de enseñanza de inglés',
+
+        // Certifications Tab
+        certificationsTitle: 'Certifications & Languages',
+        skillsLabel: 'Skills',
+        scoreLabel: 'Score',
+        viewCertificate: 'View Certificate',
+        languagesTitle: 'Languages',
+        
+        // Language Levels
+        nativeLevel: 'Native',
+        advancedLevel: 'C1 Advanced',
+        
+        // Language Names
+        englishLanguage: 'English',
+        spanishLanguage: 'Spanish',
     },
     es: {
         // Navigation
@@ -219,6 +234,21 @@ export const translations = {
         blueDollarDesc: 'Extensión de VS Code para consultar el precio del dólar blue en Argentina',
         hiEnglishTitle: 'Hi English Online',
         hiEnglishDesc: 'Una aplicación web para una plataforma de enseñanza de inglés',
+
+         // Certifications Tab
+        certificationsTitle: 'Certificaciones e Idiomas',
+        skillsLabel: 'Habilidades',
+        scoreLabel: 'Puntuación',
+        viewCertificate: 'Ver Certificado',
+        languagesTitle: 'Idiomas',
+        
+        // Language Levels
+        nativeLevel: 'Nativo',
+        advancedLevel: 'C1 Avanzado',
+        
+        // Language Names
+        englishLanguage: 'Inglés',
+        spanishLanguage: 'Español',
     }
 };
 
