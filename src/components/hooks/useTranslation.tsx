@@ -70,6 +70,45 @@ export const translations = {
         buenosAiresRemote: 'Provincia de Buenos Aires, Argentina (Remote)',
         saltaHybrid: 'Salta, Argentina (Hybrid)',
         saltaOnsite: 'Salta, Argentina (On-site)',
+
+
+        // Projects Tab
+        projectsTitle: 'Proyectos',
+        chromeExtensionsTitle: 'Extensiones de Chrome Web Store',
+        garminWatchFacesTitle: 'Esferas para Garmin Connect IQ',
+        otherProjectsTitle: 'Otros Proyectos',
+        downloadsText: 'descargas',
+
+        // Chrome Extensions
+        redditUsernamesTitle: 'Reddit Usernames Anon',
+        redditUsernamesDesc: 'Esta extensión oculta todos los nombres de usuario de Reddit',
+        argentinaChromeTitle: 'Argentina World Champion Theme',
+        argentinaChromeDesc: 'Un tema de la selección argentina de fútbol',
+        coldplayChromeTitle: 'Coldplay Theme',
+        coldplayChromeDesc: 'Un tema de la banda Coldplay',
+
+        // Garmin Watch Faces
+        realMadridWatchTitle: 'Simple Real Madrid',
+        barcelonaWatchTitle: 'Simple Barcelona',
+        psgWatchTitle: 'Simple Paris Saint Germain',
+        bayernWatchTitle: 'Simple Bayern Munich',
+        garminWatchDesc: 'Esfera para dispositivos Garmin',
+
+        // Other Projects
+        metaBackendTitle: 'Meta Backend Capstone',
+        metaBackendDesc: 'Proyecto final para la certificación de Desarrollador Backend de Meta',
+        metaFrontendTitle: 'Meta Frontend Capstone',
+        metaFrontendDesc: 'Proyecto final para la certificación de Desarrollador Frontend de Meta',
+        metaDatabaseTitle: 'Meta Database Engineer Capstone',
+        metaDatabaseDesc: 'Proyecto final para la certificación de Ingeniero de Base de Datos de Meta',
+        jsonQueryTitle: 'JSON Query Builder',
+        jsonQueryDesc: 'Una herramienta diseñada para generar texto JSON para construir consultas',
+        bajoElCieloTitle: 'Bajo el cielo salteño',
+        bajoElCieloDesc: 'Un blog personal que comparte aventuras de trekking en la región de Salta',
+        blueDollarTitle: '¿A cuánto están los verdes?',
+        blueDollarDesc: 'Extensión de VS Code para consultar el precio del dólar blue en Argentina',
+        hiEnglishTitle: 'Hi English Online',
+        hiEnglishDesc: 'Una aplicación web para una plataforma de enseñanza de inglés',
     },
     es: {
         // Navigation
@@ -142,6 +181,44 @@ export const translations = {
         buenosAiresRemote: 'Provincia de Buenos Aires, Argentina (Remoto)',
         saltaHybrid: 'Salta, Argentina (Híbrido)',
         saltaOnsite: 'Salta, Argentina (Presencial)',
+
+
+        // Projects Tab
+        projectsTitle: 'Proyectos',
+        chromeExtensionsTitle: 'Extensiones de Chrome Web Store',
+        garminWatchFacesTitle: 'Esferas para Garmin Connect IQ',
+        otherProjectsTitle: 'Otros Proyectos',
+        downloadsText: 'descargas',
+
+        // Chrome Extensions
+        redditUsernamesTitle: 'Reddit Usernames Anon',
+        redditUsernamesDesc: 'Esta extensión oculta todos los nombres de usuario de Reddit',
+        argentinaChromeTitle: 'Argentina World Champion Theme',
+        argentinaChromeDesc: 'Un tema de la selección argentina de fútbol',
+        coldplayChromeTitle: 'Coldplay Theme',
+        coldplayChromeDesc: 'Un tema de la banda Coldplay',
+         // Garmin Watch Faces
+        realMadridWatchTitle: 'Simple Real Madrid',
+        barcelonaWatchTitle: 'Simple Barcelona',
+        psgWatchTitle: 'Simple Paris Saint Germain',
+        bayernWatchTitle: 'Simple Bayern Munich',
+        garminWatchDesc: 'Esfera para dispositivos Garmin',
+
+        // Other Projects
+        metaBackendTitle: 'Meta Backend Capstone',
+        metaBackendDesc: 'Proyecto final para la certificación de Desarrollador Backend de Meta',
+        metaFrontendTitle: 'Meta Frontend Capstone',
+        metaFrontendDesc: 'Proyecto final para la certificación de Desarrollador Frontend de Meta',
+        metaDatabaseTitle: 'Meta Database Engineer Capstone',
+        metaDatabaseDesc: 'Proyecto final para la certificación de Ingeniero de Base de Datos de Meta',
+        jsonQueryTitle: 'JSON Query Builder',
+        jsonQueryDesc: 'Una herramienta diseñada para generar texto JSON para construir consultas',
+        bajoElCieloTitle: 'Bajo el cielo salteño',
+        bajoElCieloDesc: 'Un blog personal que comparte aventuras de trekking en la región de Salta',
+        blueDollarTitle: '¿A cuánto están los verdes?',
+        blueDollarDesc: 'Extensión de VS Code para consultar el precio del dólar blue en Argentina',
+        hiEnglishTitle: 'Hi English Online',
+        hiEnglishDesc: 'Una aplicación web para una plataforma de enseñanza de inglés',
     }
 };
 
