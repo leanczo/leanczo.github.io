@@ -68,8 +68,6 @@ const ExperienceTab: React.FC<ExperienceTabProps> = ({ language }) => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-6">{t('workExperience')}</h2>
-
       <div className="space-y-8">
         {experiences.map((exp, index) => (
           <div key={index} className="border-l-2 border-md-border-light dark:border-md-border-dark pl-4 pb-2">
@@ -106,7 +104,7 @@ const ExperienceTab: React.FC<ExperienceTabProps> = ({ language }) => {
         ))}
       </div>
 
-      <h2 className="text-2xl font-semibold mt-10 mb-6">Education</h2>
+      <h2 className="text-2xl font-semibold mt-10 mb-6">{t('education')}</h2>
 
       <div className="space-y-6">
         {education.map((edu, index) => (

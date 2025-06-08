@@ -41,8 +41,6 @@ const CertificationsTab: React.FC<CertificationsTabProps> = ({ language }) => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-6">{t('certificationsTitle')}</h2>
-
       <div className="space-y-6">
         {certifications.map((cert, index) => (
           <div

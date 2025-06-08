@@ -28,7 +28,6 @@ export const translations = {
 
 
         // About Tab
-        aboutTabTitle: 'About Me',
         aboutTabParagraph1: 'Hi there! I\'m Leandro, a Full Stack Developer from Argentina with a strong foundation in both front-end and back-end technologies. I specialize in building web and mobile applications using modern frameworks and tools.',
         aboutTabParagraph2: 'With a background in Informatics Engineering and experience across various projects and industries, I\'ve developed expertise in creating efficient, user-friendly applications that solve real-world problems.',
         aboutTabParagraph3: 'When I\'m not coding, you can find me exploring the outdoors, trekking in the beautiful Salta region, or working on one of my side projects, like creating watchfaces for Garmin devices or building browser extensions.',
@@ -36,8 +35,8 @@ export const translations = {
         aboutTabMobileOthers: 'Mobile & Tools',
 
         // Experience Tab - Job Descriptions
-        workExperience: 'Work Experience',
-        present: 'Presente',
+        present: 'Present',
+        education: 'Educación',
         asapJob1: 'Development of a complete system module using React.js and .NET Core.',
         asapJob2: 'Migration of legacy functionalities based on Visual Basic 6, ensuring business continuity and improved efficiency.',
         asapJob3: 'Implementation of corrections in legacy code to optimize system performance and maintainability.',
@@ -71,7 +70,6 @@ export const translations = {
 
 
         // Projects Tab
-        projectsTitle: 'Proyectos',
         chromeExtensionsTitle: 'Extensiones de Chrome Web Store',
         garminWatchFacesTitle: 'Esferas para Garmin Connect IQ',
         otherProjectsTitle: 'Otros Proyectos',
@@ -109,7 +107,6 @@ export const translations = {
         hiEnglishDesc: 'Una aplicación web para una plataforma de enseñanza de inglés',
 
         // Certifications Tab
-        certificationsTitle: 'Certifications & Languages',
         skillsLabel: 'Skills',
         scoreLabel: 'Score',
         viewCertificate: 'View Certificate',
@@ -183,7 +180,6 @@ export const translations = {
         rating: 'Calificación',
 
         // About Tab
-        aboutTabTitle: 'Acerca de Mí',
         aboutTabParagraph1: '¡Hola! Soy Leandro, un Desarrollador Full Stack de Argentina con una sólida formación en tecnologías tanto de front-end como de back-end. Me especializo en construir aplicaciones web y móviles utilizando marcos y herramientas modernas.',
         aboutTabParagraph2: 'Con una formación en Ingeniería Informática y experiencia en diversos proyectos e industrias, he desarrollado experiencia en la creación de aplicaciones eficientes y fáciles de usar que resuelven problemas del mundo real.',
         aboutTabParagraph3: 'Cuando no estoy programando, puedes encontrarme explorando el aire libre, haciendo trekking en la hermosa región de Salta, o trabajando en uno de mis proyectos paralelos, como crear esferas para dispositivos Garmin o desarrollar extensiones para navegadores.',
@@ -191,8 +187,8 @@ export const translations = {
         aboutTabMobileOthers: 'Móvil & Herramientas',
 
         // Experience Tab - Job Descriptions
-        workExperience: 'Experiencia Laboral',
         present: 'Presente',
+        education: 'Educación',
         asapJob1: 'Desarrollo de un módulo completo del sistema utilizando React.js y .NET Core.',
         asapJob2: 'Migración de funcionalidades legacy basadas en Visual Basic 6, asegurando la continuidad del negocio y mejorando la eficiencia.',
         asapJob3: 'Implementación de correcciones en código legacy para optimizar el rendimiento y mantenibilidad del sistema.',
@@ -226,7 +222,6 @@ export const translations = {
 
 
         // Projects Tab
-        projectsTitle: 'Proyectos',
         chromeExtensionsTitle: 'Extensiones de Chrome Web Store',
         garminWatchFacesTitle: 'Esferas para Garmin Connect IQ',
         otherProjectsTitle: 'Otros Proyectos',
@@ -263,7 +258,6 @@ export const translations = {
         hiEnglishDesc: 'Una aplicación web para una plataforma de enseñanza de inglés',
 
          // Certifications Tab
-        certificationsTitle: 'Certificaciones e Idiomas',
         skillsLabel: 'Habilidades',
         scoreLabel: 'Puntuación',
         viewCertificate: 'Ver Certificado',

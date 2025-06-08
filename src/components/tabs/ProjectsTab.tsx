@@ -109,8 +109,6 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-6">{t('projectsTitle')}</h2>
-
       <section className="mb-8">
         <h3 className="text-xl font-medium mb-4">{t('chromeExtensionsTitle')}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
