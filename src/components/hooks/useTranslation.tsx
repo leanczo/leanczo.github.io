@@ -33,7 +33,7 @@ export const translations = {
         aboutTabParagraph2: 'With a background in Informatics Engineering and experience across various projects and industries, I\'ve developed expertise in creating efficient, user-friendly applications that solve real-world problems.',
         aboutTabParagraph3: 'When I\'m not coding, you can find me exploring the outdoors, trekking in the beautiful Salta region, or working on one of my side projects, like creating watchfaces for Garmin devices or building browser extensions.',
         aboutTabHabilidades: 'Technical Skills',
-        aboutTabOthers: 'Other',
+        aboutTabMobileOthers: 'Mobile & Tools',
 
         // Experience Tab - Job Descriptions
         workExperience: 'Work Experience',
@@ -156,7 +156,7 @@ export const translations = {
     },
     es: {
         // Navigation
-        about: 'Acerca de',
+        about: 'Acerca de Mí',
         experience: 'Experiencia',
         projects: 'Proyectos',
         certifications: 'Certificaciones',
@@ -183,12 +183,12 @@ export const translations = {
         rating: 'Calificación',
 
         // About Tab
-        aboutTabTitle: 'Acerca de',
+        aboutTabTitle: 'Acerca de Mí',
         aboutTabParagraph1: '¡Hola! Soy Leandro, un Desarrollador Full Stack de Argentina con una sólida formación en tecnologías tanto de front-end como de back-end. Me especializo en construir aplicaciones web y móviles utilizando marcos y herramientas modernas.',
         aboutTabParagraph2: 'Con una formación en Ingeniería Informática y experiencia en diversos proyectos e industrias, he desarrollado experiencia en la creación de aplicaciones eficientes y fáciles de usar que resuelven problemas del mundo real.',
         aboutTabParagraph3: 'Cuando no estoy programando, puedes encontrarme explorando el aire libre, haciendo trekking en la hermosa región de Salta, o trabajando en uno de mis proyectos paralelos, como crear esferas para dispositivos Garmin o desarrollar extensiones para navegadores.',
         aboutTabHabilidades: 'Habilidades Técnicas',
-        aboutTabOthers: 'Otros',
+        aboutTabMobileOthers: 'Móvil & Herramientas',
 
         // Experience Tab - Job Descriptions
         workExperience: 'Experiencia Laboral',
