@@ -121,7 +121,6 @@ export const translations = {
         spanishLanguage: 'Spanish',
 
          // Books Tab
-        booksTitle: 'Recent Reading Activity',
         loadingBooks: 'Loading recent activity from Goodreads...',
         unableToLoadBooks: 'Unable to load reading activity',
         viewGoodreadsProfile: 'View my profile on Goodreads',
@@ -272,7 +271,6 @@ export const translations = {
         spanishLanguage: 'Español',
 
         // Books Tab
-        booksTitle: 'Actividad de Lectura Reciente',
         loadingBooks: 'Cargando actividad reciente de Goodreads...',
         unableToLoadBooks: 'No se pudo cargar la actividad de lectura',
         viewGoodreadsProfile: 'Ver mi perfil en Goodreads',

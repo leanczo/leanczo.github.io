@@ -159,22 +159,7 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center gap-2 pb-4 border-b border-md-border-light dark:border-md-border-dark">
-        <BookOpen className="text-md-text-light dark:text-md-text-dark" size={24} />
-        <h2 className="text-xl font-semibold text-md-text-light dark:text-md-text-dark">
-          {t('booksTitle')} ({books.length})
-        </h2>
-        <a
-          href="https://www.goodreads.com/user/show/95181601-leandro-cardozo"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ml-auto text-md-link-light dark:text-md-link-dark hover:underline text-sm flex items-center gap-1"
-        >
-          {t('viewFullProfile')} <ExternalLink size={14} />
-        </a>
-      </div>
-
+   
       {/* Books List */}
       <div className="space-y-4">
         {books.map((book) => (
