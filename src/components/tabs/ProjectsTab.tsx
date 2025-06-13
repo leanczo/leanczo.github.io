@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectCard from '../ui/ProjectCard';
-import { ExternalLink, Chrome, Watch, Code } from 'lucide-react';
+import { ExternalLink, Chrome, Watch, Code, Smartphone } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 
 interface ProjectsTabProps {
@@ -9,6 +9,17 @@ interface ProjectsTabProps {
 
 const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
   const { t } = useTranslation(language);
+
+
+  const playStoreApps = [
+    {
+      title: t('fastLapsTitle'),
+      description: t('fastLapsDesc'),
+      icon: <Smartphone size={20} />,
+      link: 'https://github.com/leanczo/fast-laps'
+    }
+  ];
+
   const chromeExtensions = [
     {
       title: t('redditUsernamesTitle'),
@@ -109,6 +120,22 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
 
   return (
     <div>
+      <section className="mb-8">
+        <h3 className="text-xl font-medium mb-4">{t('playStoreAppsTitle')}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {playStoreApps.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              icon={project.icon}
+              link={project.link}
+              language={language}
+            />
+          ))}
+        </div>
+      </section>
+
       <section className="mb-8">
         <h3 className="text-xl font-medium mb-4">{t('chromeExtensionsTitle')}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

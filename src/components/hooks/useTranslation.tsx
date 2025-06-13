@@ -149,6 +149,10 @@ export const translations = {
         dayAgo: 'day ago',
         weeksAgo: 'weeks ago',
         weekAgo: 'week ago',
+
+        playStoreAppsTitle: 'Google Play Store Apps',
+        fastLapsTitle: 'Fast Laps',
+        fastLapsDesc: 'A mobile application for tracking lap times and performance metrics for racing enthusiasts',
     },
     es: {
         // Navigation
@@ -299,6 +303,10 @@ export const translations = {
         dayAgo: 'día atrás',
         weeksAgo: 'semanas atrás',
         weekAgo: 'semana atrás',
+
+        playStoreAppsTitle: 'Aplicaciones de Google Play Store',
+        fastLapsTitle: 'Fast Laps',
+        fastLapsDesc: 'Una aplicación móvil para rastrear tiempos de vuelta y métricas de rendimiento para entusiastas de las carreras',
     }
 };
 
