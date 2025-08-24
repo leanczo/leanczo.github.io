@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectCard from '../ui/ProjectCard';
-import { ExternalLink, Chrome, Watch, Code, Smartphone } from 'lucide-react';
+import { ExternalLink, Chrome, Watch, Code, Smartphone, Radio } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 
 interface ProjectsTabProps {
@@ -114,7 +114,13 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       title: t('hiEnglishTitle'),
       description: t('hiEnglishDesc'),
       icon: <Code size={20} />,
-      link: 'https://www.hienglishonline.com/'
+      link: 'https://www.paulacardozo.com/'
+    },
+     {
+      title: t('enotraondaTitle'),
+      description: t('enotraondaDesc'),
+      icon: <Radio size={20} />,
+      link: 'https://www.enotraonda.com/'
     }
   ];
 

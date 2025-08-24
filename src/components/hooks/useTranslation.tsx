@@ -103,8 +103,10 @@ export const translations = {
         bajoElCieloDesc: 'Un blog personal que comparte aventuras de trekking en la región de Salta',
         blueDollarTitle: '¿A cuánto están los verdes?',
         blueDollarDesc: 'Extensión de VS Code para consultar el precio del dólar blue en Argentina',
-        hiEnglishTitle: 'Hi English Online',
+        hiEnglishTitle: 'Hi! Soy Pau',
         hiEnglishDesc: 'Una aplicación web para una plataforma de enseñanza de inglés',
+        enotraondaTitle: 'En Otra Onda',
+        enotraondaDesc: 'A platform for amateur radio enthusiasts.',
 
         // Certifications Tab
         skillsLabel: 'Skills',
@@ -257,8 +259,10 @@ export const translations = {
         bajoElCieloDesc: 'Un blog personal que comparte aventuras de trekking en la región de Salta',
         blueDollarTitle: '¿A cuánto están los verdes?',
         blueDollarDesc: 'Extensión de VS Code para consultar el precio del dólar blue en Argentina',
-        hiEnglishTitle: 'Hi English Online',
+        hiEnglishTitle: 'Hi! Soy Pau',
         hiEnglishDesc: 'Una aplicación web para una plataforma de enseñanza de inglés',
+        enotraondaTitle: 'En Otra Onda',
+        enotraondaDesc: 'Una plataforma para radioaficionados',
 
          // Certifications Tab
         skillsLabel: 'Habilidades',
