@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectCard from '../ui/ProjectCard';
-import { ExternalLink, Chrome, Watch, Code, Smartphone, Radio } from 'lucide-react';
+import { ExternalLink, Chrome, Watch, Code, Smartphone, Radio, Sparkles } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 
 interface ProjectsTabProps {
@@ -124,6 +124,21 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
     }
   ];
 
+  const aiProjects = [
+    {
+      title: t('compraConscienteTitle'),
+      description: t('compraConscienteDesc'),
+      icon: <Sparkles size={20} />,
+      link: 'https://compra-conciente.vercel.app/'
+    },
+    {
+      title: t('f1PredictorTitle'),
+      description: t('f1PredictorDesc'),
+      icon: <Sparkles size={20} />,
+      link: 'https://predictor-f1.vercel.app/'
+    }
+  ];
+
   return (
     <div>
       <section className="mb-8">
@@ -169,6 +184,22 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
               icon={project.icon}
               link={project.link}
               meta={`${project.downloads} downloads`}
+              language={language}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h3 className="text-xl font-medium mb-4">{t('aiProjectsTitle')}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {aiProjects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              icon={project.icon}
+              link={project.link}
               language={language}
             />
           ))}

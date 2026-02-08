@@ -108,6 +108,13 @@ export const translations = {
         enotraondaTitle: 'En Otra Onda',
         enotraondaDesc: 'A platform for amateur radio enthusiasts.',
 
+        // AI-Assisted Projects
+        aiProjectsTitle: 'AI-Assisted Projects',
+        compraConscienteTitle: 'Compra Consciente',
+        compraConscienteDesc: 'An AI-powered tool designed to help users decide whether a purchase is worth it or not.',
+        f1PredictorTitle: 'F1 Predictor',
+        f1PredictorDesc: 'A web application that predicts Formula 1 drivers\' race results based on different factors.',
+
         // Certifications Tab
         skillsLabel: 'Skills',
         scoreLabel: 'Score',
@@ -263,6 +270,13 @@ export const translations = {
         hiEnglishDesc: 'Una aplicación web para una plataforma de enseñanza de inglés',
         enotraondaTitle: 'En Otra Onda',
         enotraondaDesc: 'Una plataforma para radioaficionados',
+
+        // AI-Assisted Projects
+        aiProjectsTitle: 'Proyectos asistidos por IA',
+        compraConscienteTitle: 'Compra Consciente',
+        compraConscienteDesc: 'Una herramienta impulsada por IA diseñada para ayudar a los usuarios a decidir si una compra vale la pena o no.',
+        f1PredictorTitle: 'F1 Predictor',
+        f1PredictorDesc: 'Una aplicación web que predice los resultados de carrera de pilotos de Fórmula 1 basándose en diferentes factores.',
 
          // Certifications Tab
         skillsLabel: 'Habilidades',
