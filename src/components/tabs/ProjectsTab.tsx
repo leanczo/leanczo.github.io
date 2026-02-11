@@ -136,6 +136,12 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       description: t('f1PredictorDesc'),
       icon: <Sparkles size={20} />,
       link: 'https://predictor-f1.vercel.app/'
+    },
+    {
+      title: t('saltaCorreTitle'),
+      description: t('saltaCorreDesc'),
+      icon: <Sparkles size={20} />,
+      link: 'https://salta-corre.vercel.app/'
     }
   ];
 
