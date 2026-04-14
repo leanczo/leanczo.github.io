@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, ExternalLink, Star, Loader2, AlertCircle, FileText, Plus, Eye, CheckCircle, MessageSquare } from 'lucide-react';
+import { BookOpen, ExternalLink, Star, AlertCircle, FileText, Plus, Eye, CheckCircle, MessageSquare } from 'lucide-react';
 import { useGoodreadsBooks } from '../hooks/useGoodreadsBooks';
 import { useTranslation } from '../hooks/useTranslation';
 
@@ -108,9 +108,25 @@ const BooksTab: React.FC<BooksTabProps> = ({ language }) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-12">
-        <Loader2 className="animate-spin text-md-text-light dark:text-md-text-dark mr-3" size={24} />
-        <span className="text-md-text-light dark:text-md-text-dark">{t('loadingBooks')}</span>
+      <div className="space-y-4">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div
+            key={i}
+            className="p-4 border border-md-border-light dark:border-md-border-dark rounded-lg bg-md-code-bg-light/30 dark:bg-md-code-bg-dark/30 animate-pulse"
+          >
+            <div className="flex gap-4">
+              <div className="w-20 h-28 rounded bg-gray-200 dark:bg-gray-700 shrink-0" />
+              <div className="flex-1 space-y-2 py-1">
+                <div className="h-4 w-24 rounded bg-gray-200 dark:bg-gray-700" />
+                <div className="h-4 w-3/4 rounded bg-gray-200 dark:bg-gray-700" />
+                <div className="h-3 w-20 rounded bg-gray-200 dark:bg-gray-700" />
+                <div className="h-3 w-1/2 rounded bg-gray-200 dark:bg-gray-700" />
+                <div className="h-3 w-full rounded bg-gray-200 dark:bg-gray-700 mt-2" />
+                <div className="h-3 w-5/6 rounded bg-gray-200 dark:bg-gray-700" />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     );
   }

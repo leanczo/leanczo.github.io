@@ -16,7 +16,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       title: t('fastLapsTitle'),
       description: t('fastLapsDesc'),
       icon: <Smartphone size={20} />,
-      link: 'https://github.com/leanczo/fast-laps'
+      link: 'https://github.com/leanczo/fast-laps',
+      tech: ['Kotlin', 'Android', 'GPS']
     }
   ];
 
@@ -25,19 +26,22 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       title: t('redditUsernamesTitle'),
       description: t('redditUsernamesDesc'),
       icon: <Chrome size={20} />,
-      link: 'https://chromewebstore.google.com/detail/reddit-usernames-anon/gjpfnoagjnekjcochongcehlgagcjbji?hl=es-419&authuser=0'
+      link: 'https://chromewebstore.google.com/detail/reddit-usernames-anon/gjpfnoagjnekjcochongcehlgagcjbji?hl=es-419&authuser=0',
+      tech: ['JavaScript', 'Chrome API']
     },
     {
       title: t('argentinaChromeTitle'),
       description: t('argentinaChromeDesc'),
       icon: <Chrome size={20} />,
-      link: 'https://chromewebstore.google.com/detail/argentina-world-champion/poihhlcdlenifjfdhggpobbioihjhoba?hl=es-419&authuser=0'
+      link: 'https://chromewebstore.google.com/detail/argentina-world-champion/poihhlcdlenifjfdhggpobbioihjhoba?hl=es-419&authuser=0',
+      tech: ['JavaScript', 'Chrome API']
     },
     {
       title: t('coldplayChromeTitle'),
       description: t('coldplayChromeDesc'),
       icon: <Chrome size={20} />,
-      link: 'https://chromewebstore.google.com/detail/coldplay-theme/gnconfiaceodmonbmgligddildpnmlie?hl=es-419&authuser=0'
+      link: 'https://chromewebstore.google.com/detail/coldplay-theme/gnconfiaceodmonbmgligddildpnmlie?hl=es-419&authuser=0',
+      tech: ['JavaScript', 'Chrome API']
     },
   ];
 
@@ -47,28 +51,32 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       description: t('garminWatchDesc'),
       downloads: '1333',
       icon: <Watch size={20} />,
-      link: 'https://apps.garmin.com/en-US/apps/1b7d58cf-4464-4c20-8430-99cfde8ac10d'
+      link: 'https://apps.garmin.com/en-US/apps/1b7d58cf-4464-4c20-8430-99cfde8ac10d',
+      tech: ['JavaScript', 'Garmin SDK']
     },
     {
       title: t('barcelonaWatchTitle'),
       description: t('garminWatchDesc'),
       downloads: '1150',
       icon: <Watch size={20} />,
-      link: 'https://apps.garmin.com/en-US/apps/1ca89431-4c02-416e-9b09-5a30aa243f21'
+      link: 'https://apps.garmin.com/en-US/apps/1ca89431-4c02-416e-9b09-5a30aa243f21',
+      tech: ['JavaScript', 'Garmin SDK']
     },
     {
       title: t('psgWatchTitle'),
       description: t('garminWatchDesc'),
       downloads: '1094',
       icon: <Watch size={20} />,
-      link: 'https://apps.garmin.com/en-US/apps/7a5181b5-8c94-4d7d-8bb1-199b088e7922'
+      link: 'https://apps.garmin.com/en-US/apps/7a5181b5-8c94-4d7d-8bb1-199b088e7922',
+      tech: ['JavaScript', 'Garmin SDK']
     },
     {
       title: t('bayernWatchTitle'),
       description: t('garminWatchDesc'),
       downloads: '834',
       icon: <Watch size={20} />,
-      link: 'https://apps.garmin.com/en-US/apps/0268f226-ca98-4868-afd8-484b38e22f2f'
+      link: 'https://apps.garmin.com/en-US/apps/0268f226-ca98-4868-afd8-484b38e22f2f',
+      tech: ['JavaScript', 'Garmin SDK']
     }
   ];
 
@@ -77,50 +85,58 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       title: t('metaBackendTitle'),
       description: t('metaBackendDesc'),
       icon: <Code size={20} />,
-      link: 'https://github.com/leanczo/meta-backend-capstone'
+      link: 'https://github.com/leanczo/meta-backend-capstone',
+      tech: ['Python', 'Django', 'MySQL']
     },
     {
       title: t('metaFrontendTitle'),
       description: t('metaFrontendDesc'),
       icon: <Code size={20} />,
-      link: 'https://github.com/leanczo/meta-frontend-capstone'
+      link: 'https://github.com/leanczo/meta-frontend-capstone',
+      tech: ['React', 'JavaScript', 'CSS']
     },
     {
       title: t('metaDatabaseTitle'),
       description: t('metaDatabaseDesc'),
       icon: <Code size={20} />,
-      link: 'https://github.com/leanczo/db-capstone-project'
+      link: 'https://github.com/leanczo/db-capstone-project',
+      tech: ['MySQL', 'SQL']
     },
     {
       title: t('jsonQueryTitle'),
       description: t('jsonQueryDesc'),
       icon: <Code size={20} />,
-      link: 'https://query-json-generator.vercel.app/'
+      link: 'https://query-json-generator.vercel.app/',
+      tech: ['React', 'TypeScript', 'Vercel']
     },
     {
       title: t('bajoElCieloTitle'),
       description: t('bajoElCieloDesc'),
       icon: <ExternalLink size={20} />,
-      link: 'https://bajo-el-cielo-salteno.vercel.app/'
+      link: 'https://bajo-el-cielo-salteno.vercel.app/',
+      tech: ['React', 'TypeScript']
     },
     {
       title: t('blueDollarTitle'),
       description: t('blueDollarDesc'),
       downloads: '188',
       icon: <Code size={20} />,
-      link: 'https://marketplace.visualstudio.com/items?itemName=leanczo.blue-dollar'
+      link: 'https://marketplace.visualstudio.com/items?itemName=leanczo.blue-dollar',
+      tech: ['TypeScript', 'VS Code API']
     },
     {
       title: t('hiEnglishTitle'),
       description: t('hiEnglishDesc'),
       icon: <Code size={20} />,
-      link: 'https://www.paulacardozo.com/'
+      link: 'https://www.paulacardozo.com/',
+      tech: ['React', 'TypeScript']
     },
-     {
+    {
       title: t('enotraondaTitle'),
       description: t('enotraondaDesc'),
       icon: <Radio size={20} />,
-      link: 'https://www.enotraonda.com/'
+      link: 'https://www.enotraonda.com/',
+      tech: ['React', 'TypeScript']
     }
   ];
 
@@ -129,19 +145,22 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       title: t('compraConscienteTitle'),
       description: t('compraConscienteDesc'),
       icon: <Sparkles size={20} />,
-      link: 'https://compra-conciente.vercel.app/'
+      link: 'https://compra-conciente.vercel.app/',
+      tech: ['React', 'TypeScript', 'AI']
     },
     {
       title: t('f1PredictorTitle'),
       description: t('f1PredictorDesc'),
       icon: <Sparkles size={20} />,
-      link: 'https://predictor-f1.vercel.app/'
+      link: 'https://predictor-f1.vercel.app/',
+      tech: ['React', 'TypeScript', 'AI']
     },
     {
       title: t('saltaCorreTitle'),
       description: t('saltaCorreDesc'),
       icon: <Sparkles size={20} />,
-      link: 'https://salta-corre.vercel.app/'
+      link: 'https://salta-corre.vercel.app/',
+      tech: ['React', 'TypeScript', 'AI']
     }
   ];
 
@@ -157,6 +176,7 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
               description={project.description}
               icon={project.icon}
               link={project.link}
+              tech={project.tech}
               language={language}
             />
           ))}
@@ -173,6 +193,7 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
               description={project.description}
               icon={project.icon}
               link={project.link}
+              tech={project.tech}
               language={language}
             />
           ))}
@@ -190,6 +211,7 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
               icon={project.icon}
               link={project.link}
               meta={`${project.downloads} downloads`}
+              tech={project.tech}
               language={language}
             />
           ))}
@@ -206,6 +228,7 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
               description={project.description}
               icon={project.icon}
               link={project.link}
+              tech={project.tech}
               language={language}
             />
           ))}
@@ -223,6 +246,7 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
               icon={project.icon}
               link={project.link}
               meta={project.downloads ? `${project.downloads} ${t('downloadsText')}` : undefined}
+              tech={project.tech}
               language={language}
             />
           ))}

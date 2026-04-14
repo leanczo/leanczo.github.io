@@ -1,27 +1,56 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Coffee } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useTranslation } from './hooks/useTranslation';
 
 interface HeaderProps {
   language: 'en' | 'es';
 }
 
+function useTypingEffect(text: string, speed = 40): string {
+  const [displayed, setDisplayed] = useState('');
+  useEffect(() => {
+    let i = 0;
+    const id = setInterval(() => {
+      setDisplayed(text.slice(0, ++i));
+      if (i >= text.length) clearInterval(id);
+    }, speed);
+    return () => clearInterval(id);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  return displayed;
+}
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }
+};
+
 const Header: React.FC<HeaderProps> = ({ language }) => {
   const { t } = useTranslation(language);
+  const subtitle = useTypingEffect('Full Stack Developer | Salta, Argentina');
 
   return (
-    <header className="mb-8">
-      <h1 className="text-4xl font-bold mb-4">Leandro Cardozo</h1>
-      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 mb-4">
-        <div className="flex items-center gap-2">
-          <span className="text-md-text-light/80 dark:text-md-text-dark/80">
-            Full Stack Developer
-          </span>
-          <span className="text-md-text-light/60 dark:text-md-text-dark/60">|</span>
-          <span className="text-md-text-light/80 dark:text-md-text-dark/80">
-            Salta, Argentina
-          </span>
-        </div>
+    <motion.header
+      className="mb-8"
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.h1 className="text-4xl font-bold mb-4" variants={item}>
+        Leandro Cardozo
+      </motion.h1>
+      <motion.div
+        className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 mb-4"
+        variants={item}
+      >
+        <span className="text-md-text-light/80 dark:text-md-text-dark/80 min-h-[1.5rem]">
+          {subtitle}
+        </span>
         <div className="flex gap-4">
           <a
             href="https://github.com/leanczo"
@@ -58,11 +87,11 @@ const Header: React.FC<HeaderProps> = ({ language }) => {
             <Coffee size={20} />
           </a>
         </div>
-      </div>
-      <p className="text-lg">
+      </motion.div>
+      <motion.p className="text-lg" variants={item}>
         {t('headerDescription')}
-      </p>
-    </header>
+      </motion.p>
+    </motion.header>
   );
 };
 

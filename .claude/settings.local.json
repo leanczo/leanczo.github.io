@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(tsx?|jsx?|md|mdx\\)$\")",
+      "Bash(npx tsc:*)",
+      "Bash(echo \"EXIT:$?\")"
+    ]
+  }
+}

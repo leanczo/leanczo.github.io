@@ -8,18 +8,19 @@ interface ProjectCardProps {
   icon: ReactNode;
   link: string;
   meta?: string;
+  tech?: string[];
   language: 'en' | 'es';
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, link, meta, language }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, link, meta, tech, language }) => {
   const { t } = useTranslation(language);
   return (
-    <div className="p-4 border border-md-border-light dark:border-md-border-dark rounded-lg transition-all hover:shadow-md">
+    <div className="p-4 border border-md-border-light dark:border-md-border-dark rounded-lg transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-md-link-light dark:hover:border-md-link-dark cursor-pointer">
       <div className="flex items-start">
         <div className="mr-3 p-2 bg-md-code-bg-light dark:bg-md-code-bg-dark rounded-full">
           {icon}
         </div>
-        
+
         <div className="flex-1">
           <div className="flex flex-col">
             <h3 className="text-lg font-medium !mt-0">{title}</h3>
@@ -29,14 +30,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, lin
               </span>
             )}
           </div>
-          
+
           <p className="text-md-text-light/80 dark:text-md-text-dark/80 text-sm mt-1 mb-2">
             {description}
           </p>
-          
-          <a 
-            href={link} 
-            target="_blank" 
+
+          {tech && tech.length > 0 && (
+            <div className="flex flex-wrap gap-1 mb-2">
+              {tech.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-2 py-0.5 rounded-full bg-md-code-bg-light dark:bg-md-code-bg-dark text-md-text-light/70 dark:text-md-text-dark/70 border border-md-border-light dark:border-md-border-dark"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <a
+            href={link}
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-md-link-light dark:text-md-link-dark text-sm hover:underline"
           >

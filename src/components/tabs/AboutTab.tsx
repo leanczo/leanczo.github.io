@@ -82,62 +82,30 @@ const AboutTab: React.FC<AboutTabProps> = ({ isDarkMode, language }) => {
 
       <h3 className="text-xl font-semibold mt-6 mb-3">{t('aboutTabHabilidades')}</h3>
 
-      <div className="space-y-3">
-        {/* Frontend Card */}
-        <div className="border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow">
-          <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 rounded-t-lg">
-            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
-              <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-              Frontend
-            </h4>
-          </div>
-          <div className="p-4">
-            <div className="flex flex-wrap gap-2">
-              <SimpleIcon icon={siReact} title="React.js" />
-              <SimpleIcon icon={siAngular} title="Angular" adaptColor={true} />
-              <SimpleIcon icon={siTypescript} title="TypeScript" />
-              <SimpleIcon icon={siHtml5} title="HTML5" />
-              <SimpleIcon icon={siCss} title="CSS3" />
-            </div>
-          </div>
-        </div>
+      <h4>Frontend</h4>
+      <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4">
+        <SimpleIcon icon={siReact} title="React.js" />
+        <SimpleIcon icon={siAngular} title="Angular" adaptColor={true} />
+        <SimpleIcon icon={siTypescript} title="TypeScript" />
+        <SimpleIcon icon={siHtml5} title="HTML5" />
+        <SimpleIcon icon={siCss} title="CSS3" />
+      </div>
 
-        {/* Backend Card */}
-        <div className="border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow">
-          <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 rounded-t-lg">
-            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
-              <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-              Backend
-            </h4>
-          </div>
-          <div className="p-4">
-            <div className="flex flex-wrap gap-2">
-              <SimpleIcon icon={siDotnet} title=".NET Core" />
-              <SimpleIcon icon={siNestjs} title="NestJS" />
-              <SimpleIcon icon={siGraphql} title="GraphQL" />
-            </div>
-          </div>
-        </div>
+      <h4>Backend</h4>
+      <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4">
+        <SimpleIcon icon={siDotnet} title=".NET Core" />
+        <SimpleIcon icon={siNestjs} title="NestJS" />
+        <SimpleIcon icon={siGraphql} title="GraphQL" />
+      </div>
 
-        {/* Mobile & Others Card */}
-        <div className="border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow">
-          <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 rounded-t-lg">
-            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
-              <span className="w-3 h-3 bg-purple-500 rounded-full"></span>
-              {t('aboutTabMobileOthers')}
-            </h4>
-          </div>
-          <div className="p-4">
-            <div className="flex flex-wrap gap-2">
-              <SimpleIcon icon={siFlutter} title="Flutter" />
-              <SimpleIcon icon={siDevbox} title="Xamarin" adaptColor={true} />
-              <SimpleIcon icon={siPostgresql} title="PostgreSQL" />
-              <SimpleIcon icon={siMysql} title="MySQL" />
-              <SimpleIcon icon={siFirebase} title="Firebase" />
-              <SimpleIcon icon={siGit} title="Git" adaptColor={true} />
-            </div>
-          </div>
-        </div>
+      <h4>{t('aboutTabMobileOthers')}</h4>
+      <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4">
+        <SimpleIcon icon={siFlutter} title="Flutter" />
+        <SimpleIcon icon={siDevbox} title="Xamarin" adaptColor={true} />
+        <SimpleIcon icon={siPostgresql} title="PostgreSQL" />
+        <SimpleIcon icon={siMysql} title="MySQL" />
+        <SimpleIcon icon={siFirebase} title="Firebase" />
+        <SimpleIcon icon={siGit} title="Git" adaptColor={true} />
       </div>
     </div>
   );
