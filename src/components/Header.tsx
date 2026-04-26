@@ -78,11 +78,11 @@ const Header: React.FC<HeaderProps> = ({ language }) => {
             <Mail size={20} />
           </a>
           <a
-            href="https://buymeacoffee.com/leanczo"
+            href="https://cafecito.app/leanczo"
             target="_blank"
             rel="noopener noreferrer"
             className="text-md-text-light/70 dark:text-md-text-dark/70 hover:text-md-link-light dark:hover:text-md-link-dark transition-colors"
-            aria-label="Buy me a coffee"
+            aria-label="Cafecito"
           >
             <Coffee size={20} />
           </a>

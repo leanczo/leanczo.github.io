@@ -5,7 +5,6 @@ import AboutTab from './tabs/AboutTab';
 import ExperienceTab from './tabs/ExperienceTab';
 import ProjectsTab from './tabs/ProjectsTab';
 import CertificationsTab from './tabs/CertificationsTab';
-import BooksTab from './tabs/BooksTab';
 
 interface TabContainerProps {
   isDarkMode: boolean;
@@ -14,14 +13,18 @@ interface TabContainerProps {
 
 const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode, language }) => {
   const { t } = useTranslation(language);
-  const [activeTab, setActiveTab] = useState('about');
+  const [activeTab, setActiveTab] = useState(() => localStorage.getItem('activeTab') ?? 'about');
+
+  const handleTabChange = (id: string) => {
+    setActiveTab(id);
+    localStorage.setItem('activeTab', id);
+  };
 
   const tabs = [
     { id: 'about', label: t('about') },
     { id: 'experience', label: t('experience') },
     { id: 'projects', label: t('projects') },
     { id: 'certifications', label: t('certifications') },
-    { id: 'books', label: t('books') },
   ];
 
   const renderTabContent = () => {
@@ -34,8 +37,6 @@ const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode, language }) => 
         return <ProjectsTab language={language} />;
       case 'certifications':
         return <CertificationsTab language={language} />;
-      case 'books':
-        return <BooksTab language={language} />;
       default:
         return <AboutTab isDarkMode={isDarkMode} language={language} />;
     }
@@ -49,7 +50,7 @@ const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode, language }) => 
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabChange(tab.id)}
               className={`tab ${activeTab === tab.id ? 'active' : 'inactive'}`}
             >
               {tab.label}
@@ -64,7 +65,7 @@ const TabContainer: React.FC<TabContainerProps> = ({ isDarkMode, language }) => 
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => handleTabChange(tab.id)}
                   className={`tab whitespace-nowrap px-4 py-2 text-sm ${activeTab === tab.id ? 'active' : 'inactive'
                     }`}
                 >

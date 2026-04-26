@@ -5,7 +5,6 @@ export const translations = {
         experience: 'Experience',
         projects: 'Projects',
         certifications: 'Certifications',
-        books: 'Books',
 
         // Header
         headerDescription: 'Full Stack Developer with experience in React, Angular, .NET Core, and mobile development. Passionate about building user-friendly applications and solving complex problems.',
@@ -21,10 +20,8 @@ export const translations = {
         myProjects: 'My Projects',
         viewProject: 'View Project',
         viewCode: 'View Code',
+        searchProjects: 'Search projects...',
 
-        // Books
-        readBooks: 'Books I\'ve Read',
-        rating: 'Rating',
 
 
         // About Tab
@@ -131,39 +128,33 @@ export const translations = {
         englishLanguage: 'English',
         spanishLanguage: 'Spanish',
 
-         // Books Tab
-        loadingBooks: 'Loading recent activity from Goodreads...',
-        unableToLoadBooks: 'Unable to load reading activity',
-        viewGoodreadsProfile: 'View my profile on Goodreads',
-        viewFullProfile: 'View full profile',
-        noRecentActivity: 'No recent activity found',
-        checkBackLater: 'Check back later for my latest reading updates.',
-        viewMyGoodreadsProfile: 'View my Goodreads profile',
-        followReadingJourney: 'Follow my reading journey on Goodreads',
-        recentActivityFooter: 'This shows my most recent reading activity from Goodreads',
-        viewOnGoodreads: 'View on Goodreads',
-        noRating: 'No rating',
-        pages: 'pages',
-        published: 'Published',
-        
-        // Activity types
-        finishedReading: 'Finished reading',
-        currentlyReading: 'Currently reading',
-        wantsToRead: 'Wants to read',
-        reviewed: 'Reviewed',
-        addedToLibrary: 'Added to library',
-        updated: 'Updated',
-
-        // Date formatting
-        yesterday: 'Yesterday',
-        daysAgo: 'days ago',
-        dayAgo: 'day ago',
-        weeksAgo: 'weeks ago',
-        weekAgo: 'week ago',
-
         playStoreAppsTitle: 'Google Play Store Apps',
         fastLapsTitle: 'Fast Laps',
         fastLapsDesc: 'A mobile application for tracking lap times and performance metrics for racing enthusiasts',
+
+        // VS Code Marketplace
+        vscodeExtensionsTitle: 'VS Code Marketplace',
+
+        // Chrome extensions (new)
+        hiEnglishChromeTitle: 'Hi English Theme',
+        hiEnglishChromeDesc: 'A Chrome theme for the Hi English language-learning platform',
+
+        // Garmin watchfaces (new)
+        bocaJrsWatchTitle: 'Simple Boca Jrs',
+        arsenalWatchTitle: 'Simple Arsenal',
+        argentinaWatchTitle: 'Simple Argentina',
+        interMiamiWatchTitle: 'Simple Inter Miami',
+        uChileWatchTitle: 'Simple Universidad de Chile',
+        coloColoWatchTitle: 'Simple Colo-Colo',
+        manchesterCityWatchTitle: 'Simple Manchester City',
+
+        // Other projects (new)
+        rankingSubredditTitle: 'Ranking of Karma by Subreddit',
+        rankingSubredditDesc: 'Script to rank Reddit users by karma within a specific subreddit',
+        noDestinationTitle: 'No Destination',
+        noDestinationDesc: 'A space to write things that disappear',
+        leanReviewsTitle: 'Lean Reviews',
+        leanReviewsDesc: 'Personal reviews of movies, books, games, short films, anime and manga',
     },
     es: {
         // Navigation
@@ -171,7 +162,6 @@ export const translations = {
         experience: 'Experiencia',
         projects: 'Proyectos',
         certifications: 'Certificaciones',
-        books: 'Libros',
 
         // Header
         headerDescription: 'Desarrollador Full Stack con experiencia en React, Angular, .NET Core y desarrollo móvil. Apasionado por crear aplicaciones intuitivas y resolver problemas complejos.',
@@ -188,10 +178,8 @@ export const translations = {
         myProjects: 'Mis Proyectos',
         viewProject: 'Ver Proyecto',
         viewCode: 'Ver Código',
+        searchProjects: 'Buscar proyectos...',
 
-        // Books
-        readBooks: 'Libros que he Leído',
-        rating: 'Calificación',
 
         // About Tab
         aboutTabParagraph1: '¡Hola! Soy Leandro, un Desarrollador Full Stack de Argentina con una sólida formación en tecnologías tanto de front-end como de back-end. Me especializo en construir aplicaciones web y móviles utilizando marcos y herramientas modernas.',
@@ -296,39 +284,33 @@ export const translations = {
         englishLanguage: 'Inglés',
         spanishLanguage: 'Español',
 
-        // Books Tab
-        loadingBooks: 'Cargando actividad reciente de Goodreads...',
-        unableToLoadBooks: 'No se pudo cargar la actividad de lectura',
-        viewGoodreadsProfile: 'Ver mi perfil en Goodreads',
-        viewFullProfile: 'Ver perfil completo',
-        noRecentActivity: 'No se encontró actividad reciente',
-        checkBackLater: 'Vuelve más tarde para ver mis últimas actualizaciones de lectura.',
-        viewMyGoodreadsProfile: 'Ver mi perfil de Goodreads',
-        followReadingJourney: 'Sigue mi viaje de lectura en Goodreads',
-        recentActivityFooter: 'Esto muestra mi actividad de lectura más reciente de Goodreads',
-        viewOnGoodreads: 'Ver en Goodreads',
-        noRating: 'Sin calificación',
-        pages: 'páginas',
-        published: 'Publicado',
-        
-        // Activity types
-        finishedReading: 'Terminó de leer',
-        currentlyReading: 'Leyendo actualmente',
-        wantsToRead: 'Quiere leer',
-        reviewed: 'Reseñó',
-        addedToLibrary: 'Agregó a la biblioteca',
-        updated: 'Actualizado',
-
-        // Date formatting
-        yesterday: 'Ayer',
-        daysAgo: 'días atrás',
-        dayAgo: 'día atrás',
-        weeksAgo: 'semanas atrás',
-        weekAgo: 'semana atrás',
-
         playStoreAppsTitle: 'Aplicaciones de Google Play Store',
         fastLapsTitle: 'Fast Laps',
         fastLapsDesc: 'Una aplicación móvil para rastrear tiempos de vuelta y métricas de rendimiento para entusiastas de las carreras',
+
+        // VS Code Marketplace
+        vscodeExtensionsTitle: 'VS Code Marketplace',
+
+        // Chrome extensions (new)
+        hiEnglishChromeTitle: 'Hi English Theme',
+        hiEnglishChromeDesc: 'Un tema para Chrome de la plataforma de aprendizaje de inglés Hi English',
+
+        // Garmin watchfaces (new)
+        bocaJrsWatchTitle: 'Simple Boca Jrs',
+        arsenalWatchTitle: 'Simple Arsenal',
+        argentinaWatchTitle: 'Simple Argentina',
+        interMiamiWatchTitle: 'Simple Inter Miami',
+        uChileWatchTitle: 'Simple Universidad de Chile',
+        coloColoWatchTitle: 'Simple Colo-Colo',
+        manchesterCityWatchTitle: 'Simple Manchester City',
+
+        // Other projects (new)
+        rankingSubredditTitle: 'Ranking of Karma by Subreddit',
+        rankingSubredditDesc: 'Script para rankear usuarios de Reddit por karma en un subreddit específico',
+        noDestinationTitle: 'No Destination',
+        noDestinationDesc: 'Un espacio para escribir cosas que desaparecen',
+        leanReviewsTitle: 'Lean Reviews',
+        leanReviewsDesc: 'Reseñas personales de películas, libros, juegos, cortos, anime y manga',
     }
 };
 
