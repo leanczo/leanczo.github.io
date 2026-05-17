@@ -16,6 +16,7 @@ interface Project {
   link: string;
   tech?: string[];
   downloads?: string;
+  image?: string;
 }
 
 interface SectionProps {
@@ -43,6 +44,7 @@ const ProjectSection: React.FC<SectionProps> = ({ title, projects, view, languag
               meta={project.downloads ? `${project.downloads} ${downloadsText}` : undefined}
               tech={project.tech}
               language={language}
+              image={project.image}
             />
           ))}
         </div>
@@ -54,9 +56,8 @@ const ProjectSection: React.FC<SectionProps> = ({ title, projects, view, languag
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-start gap-3 px-4 py-3 hover:bg-md-code-bg-light dark:hover:bg-md-code-bg-dark transition-colors group ${
-                index < projects.length - 1 ? 'border-b border-md-border-light dark:border-md-border-dark' : ''
-              }`}
+              className={`flex items-start gap-3 px-4 py-3 hover:bg-md-code-bg-light dark:hover:bg-md-code-bg-dark transition-colors group ${index < projects.length - 1 ? 'border-b border-md-border-light dark:border-md-border-dark' : ''
+                }`}
             >
               <span className="mt-0.5 shrink-0 text-md-text-light/50 dark:text-md-text-dark/50">
                 {project.icon}
@@ -118,7 +119,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       description: t('fastLapsDesc'),
       icon: <Smartphone size={20} />,
       link: 'https://github.com/leanczo/fast-laps',
-      tech: ['Kotlin', 'Android', 'GPS']
+      tech: ['Kotlin', 'Android', 'GPS'],
+      image: '/projects/fast-laps.png'
     }
   ];
 
@@ -160,7 +162,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '1333',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/1b7d58cf-4464-4c20-8430-99cfde8ac10d',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-real-madrid.png'
     },
     {
       title: t('barcelonaWatchTitle'),
@@ -168,7 +171,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '1150',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/1ca89431-4c02-416e-9b09-5a30aa243f21',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-barcelona.png'
     },
     {
       title: t('psgWatchTitle'),
@@ -176,7 +180,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '1094',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/7a5181b5-8c94-4d7d-8bb1-199b088e7922',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-psg.png'
     },
     {
       title: t('bayernWatchTitle'),
@@ -184,7 +189,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '834',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/0268f226-ca98-4868-afd8-484b38e22f2f',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-bayern.png'
     },
     {
       title: t('arsenalWatchTitle'),
@@ -192,7 +198,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '690',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/2603d3a0-4bf3-455b-8b7e-a4c9211e8107',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-arsenal.png'
     },
     {
       title: t('bocaJrsWatchTitle'),
@@ -200,7 +207,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '278',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/2913b8b9-38c1-46fa-b547-47d19926500b',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-boca.png'
     },
     {
       title: t('interMiamiWatchTitle'),
@@ -208,7 +216,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '279',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/68841b32-7ac8-4856-b7a6-4e1ef730ca7d',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-inter-miami.png'
     },
     {
       title: t('manchesterCityWatchTitle'),
@@ -216,7 +225,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '125',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/cd0673db-ed5c-4925-9639-af771e3cd2bd',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-man-city.png'
     },
     {
       title: t('argentinaWatchTitle'),
@@ -224,7 +234,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '112',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/79cc9fad-d173-4e9a-a0d8-42da3453c48e',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-argentina.png'
     },
     {
       title: t('coloColoWatchTitle'),
@@ -232,7 +243,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '80',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/497b266d-ddb5-4c00-add4-d2bd4b8926f2',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-colo-colo.png'
     },
     {
       title: t('uChileWatchTitle'),
@@ -240,7 +252,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '41',
       icon: <Watch size={20} />,
       link: 'https://apps.garmin.com/en-US/apps/023d0013-6ca6-4df1-b0c9-b5fccd79234b',
-      tech: ['JavaScript', 'Garmin SDK']
+      tech: ['JavaScript', 'Garmin SDK'],
+      image: '/projects/garmin-u-chile.png'
     },
   ];
 
@@ -251,7 +264,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       downloads: '244',
       icon: <Code size={20} />,
       link: 'https://marketplace.visualstudio.com/items?itemName=leanczo.blue-dollar',
-      tech: ['TypeScript', 'VS Code API']
+      tech: ['TypeScript', 'VS Code API'],
+      image: '/projects/blue-dollar.png'
     },
   ];
 
@@ -264,10 +278,10 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       tech: ['React', 'TypeScript', 'AI']
     },
     {
-      title: t('f1PredictorTitle'),
-      description: t('f1PredictorDesc'),
+      title: t('volanteLocoTitle'),
+      description: t('volanteLocoDesc'),
       icon: <Sparkles size={20} />,
-      link: 'https://predictor-f1.vercel.app/',
+      link: 'https://volante-loco.vercel.app/',
       tech: ['React', 'TypeScript', 'AI']
     },
     {
@@ -285,21 +299,24 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       description: t('metaBackendDesc'),
       icon: <Code size={20} />,
       link: 'https://github.com/leanczo/meta-backend-capstone',
-      tech: ['Python', 'Django', 'MySQL']
+      tech: ['Python', 'Django', 'MySQL'],
+      image: '/projects/meta-backend.png'
     },
     {
       title: t('metaFrontendTitle'),
       description: t('metaFrontendDesc'),
       icon: <Code size={20} />,
       link: 'https://github.com/leanczo/meta-frontend-capstone',
-      tech: ['React', 'JavaScript', 'CSS']
+      tech: ['React', 'JavaScript', 'CSS'],
+      image: '/projects/meta-frontend.png'
     },
     {
       title: t('metaDatabaseTitle'),
       description: t('metaDatabaseDesc'),
       icon: <Code size={20} />,
       link: 'https://github.com/leanczo/db-capstone-project',
-      tech: ['MySQL', 'SQL']
+      tech: ['MySQL', 'SQL'],
+      image: '/projects/meta-database.png'
     },
     {
       title: t('jsonQueryTitle'),
@@ -313,7 +330,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       description: t('bajoElCieloDesc'),
       icon: <ExternalLink size={20} />,
       link: 'https://bajo-el-cielo-salteno.vercel.app/',
-      tech: ['React', 'TypeScript']
+      tech: ['React', 'TypeScript'],
+      image: '/projects/bajo-el-cielo.png'
     },
     {
       title: t('rankingSubredditTitle'),
@@ -341,7 +359,8 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
       description: t('hiEnglishDesc'),
       icon: <Code size={20} />,
       link: 'https://www.paulacardozo.com/',
-      tech: ['React', 'TypeScript']
+      tech: ['React', 'TypeScript'],
+      image: '/projects/paula.png'
     },
     {
       title: t('enotraondaTitle'),
@@ -357,20 +376,20 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
   const filtered = (projects: Project[]) =>
     needle
       ? projects.filter(
-          (p) =>
-            p.title.toLowerCase().includes(needle) ||
-            p.description.toLowerCase().includes(needle) ||
-            p.tech?.some((tag) => tag.toLowerCase().includes(needle))
-        )
+        (p) =>
+          p.title.toLowerCase().includes(needle) ||
+          p.description.toLowerCase().includes(needle) ||
+          p.tech?.some((tag) => tag.toLowerCase().includes(needle))
+      )
       : projects;
 
   const sections = [
-    { key: 'play',   title: t('playStoreAppsTitle'),    projects: filtered(playStoreApps) },
+    { key: 'play', title: t('playStoreAppsTitle'), projects: filtered(playStoreApps) },
     { key: 'chrome', title: t('chromeExtensionsTitle'), projects: filtered(chromeExtensions) },
     { key: 'garmin', title: t('garminWatchFacesTitle'), projects: filtered(watchFaces) },
     { key: 'vscode', title: t('vscodeExtensionsTitle'), projects: filtered(vscodeExtensions) },
-    { key: 'ai',     title: t('aiProjectsTitle'),       projects: filtered(aiProjects) },
-    { key: 'other',  title: t('otherProjectsTitle'),    projects: filtered(otherProjects) },
+    { key: 'ai', title: t('aiProjectsTitle'), projects: filtered(aiProjects) },
+    { key: 'other', title: t('otherProjectsTitle'), projects: filtered(otherProjects) },
   ];
 
   return (
@@ -395,22 +414,20 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
           <button
             onClick={() => handleViewChange('grid')}
             title="Grid view"
-            className={`p-1.5 rounded transition-colors ${
-              view === 'grid'
-                ? 'text-md-link-light dark:text-md-link-dark'
-                : 'text-md-text-light/30 dark:text-md-text-dark/30 hover:text-md-text-light/60 dark:hover:text-md-text-dark/60'
-            }`}
+            className={`p-1.5 rounded transition-colors ${view === 'grid'
+              ? 'text-md-link-light dark:text-md-link-dark'
+              : 'text-md-text-light/30 dark:text-md-text-dark/30 hover:text-md-text-light/60 dark:hover:text-md-text-dark/60'
+              }`}
           >
             <LayoutGrid size={16} />
           </button>
           <button
             onClick={() => handleViewChange('list')}
             title="List view"
-            className={`p-1.5 rounded transition-colors ${
-              view === 'list'
-                ? 'text-md-link-light dark:text-md-link-dark'
-                : 'text-md-text-light/30 dark:text-md-text-dark/30 hover:text-md-text-light/60 dark:hover:text-md-text-dark/60'
-            }`}
+            className={`p-1.5 rounded transition-colors ${view === 'list'
+              ? 'text-md-link-light dark:text-md-link-dark'
+              : 'text-md-text-light/30 dark:text-md-text-dark/30 hover:text-md-text-light/60 dark:hover:text-md-text-dark/60'
+              }`}
           >
             <List size={16} />
           </button>

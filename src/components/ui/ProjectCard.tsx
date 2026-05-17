@@ -10,9 +10,10 @@ interface ProjectCardProps {
   meta?: string;
   tech?: string[];
   language: 'en' | 'es';
+  image?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, link, meta, tech, language }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, link, meta, tech, language, image }) => {
   const { t } = useTranslation(language);
   return (
     <div className="p-4 border border-md-border-light dark:border-md-border-dark rounded-lg transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-md-link-light dark:hover:border-md-link-dark cursor-pointer">
@@ -20,6 +21,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, icon, lin
         <div className="mr-3 p-2 bg-md-code-bg-light dark:bg-md-code-bg-dark rounded-full">
           {icon}
         </div>
+
+        {image && (
+          <div className="mr-3 shrink-0">
+            <img
+              src={image}
+              alt=""
+              className="w-12 h-12 rounded-md object-cover border border-md-border-light dark:border-md-border-dark"
+            />
+          </div>
+        )}
 
         <div className="flex-1">
           <div className="flex flex-col">
