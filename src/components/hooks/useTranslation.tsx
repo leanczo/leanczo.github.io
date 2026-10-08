@@ -109,10 +109,10 @@ export const translations = {
         aiProjectsTitle: 'AI-Assisted Projects',
         compraConscienteTitle: 'Compra Consciente',
         compraConscienteDesc: 'An AI-powered tool designed to help users decide whether a purchase is worth it or not.',
-        volanteLocoTitle: 'Volante Loco',
-        volanteLocoDesc: 'A complete Formula 1 dashboard with standings, results, and race data.',
         saltaCorreTitle: 'Salta Corre',
         saltaCorreDesc: 'A website that showcases running races held in the city of Salta.',
+        queNoSeQuemeTitle: 'Que No Se Queme',
+        queNoSeQuemeDesc: 'A recipe website built with AI.',
 
         // Certifications Tab
         skillsLabel: 'Skills',
@@ -265,10 +265,10 @@ export const translations = {
         aiProjectsTitle: 'Proyectos asistidos por IA',
         compraConscienteTitle: 'Compra Consciente',
         compraConscienteDesc: 'Una herramienta impulsada por IA diseñada para ayudar a los usuarios a decidir si una compra vale la pena o no.',
-        volanteLocoTitle: 'Volante Loco',
-        volanteLocoDesc: 'Un dashboard completo de Fórmula 1 con clasificaciones, resultados y datos de carrera.',
         saltaCorreTitle: 'Salta Corre',
         saltaCorreDesc: 'Un sitio web que muestra las carreras que se realizan en la ciudad de Salta.',
+        queNoSeQuemeTitle: 'Que No Se Queme',
+        queNoSeQuemeDesc: 'Un sitio web de recetas hecho con IA.',
 
          // Certifications Tab
         skillsLabel: 'Habilidades',

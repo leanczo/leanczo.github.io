@@ -271,17 +271,17 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({ language }) => {
 
   const aiProjects: Project[] = [
     {
+      title: t('queNoSeQuemeTitle'),
+      description: t('queNoSeQuemeDesc'),
+      icon: <Sparkles size={20} />,
+      link: 'https://que-no-se-queme.vercel.app/',
+      tech: ['React', 'TypeScript', 'AI']
+    },
+    {
       title: t('compraConscienteTitle'),
       description: t('compraConscienteDesc'),
       icon: <Sparkles size={20} />,
       link: 'https://compra-conciente.vercel.app/',
-      tech: ['React', 'TypeScript', 'AI']
-    },
-    {
-      title: t('volanteLocoTitle'),
-      description: t('volanteLocoDesc'),
-      icon: <Sparkles size={20} />,
-      link: 'https://volante-loco.vercel.app/',
       tech: ['React', 'TypeScript', 'AI']
     },
     {
